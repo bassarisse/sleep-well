@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="10" height="10" tilewidth="100" tileheight="100">
+ <tileset firstgid="1" name="tiles" tilewidth="100" tileheight="100">
+  <image source="tiles.png" width="512" height="1024"/>
+ </tileset>
+ <layer name="main" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjZGBgYCKAWYCYDYjZ0bASECsj8TlxqFMHYg0i1KHj4aROAIgFCWBhIAYAgg4DcQ==
+  </data>
+ </layer>
+ <objectgroup name="collision" width="10" height="10">
+  <object type="Nerve" x="511" y="112" width="181" height="157"/>
+  <object x="49" y="49">
+   <polyline points="0,0 0,900 900,900 900,0 0,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="objects" width="10" height="10">
+  <object type="Player" x="473" y="627" width="48" height="48"/>
+  <object type="BadNeuron" x="130" y="672" width="37" height="45">
+   <properties>
+    <property name="MaxObjects" value="3"/>
+   </properties>
+  </object>
+  <object type="BadNeuron" x="744" y="820" width="37" height="45">
+   <properties>
+    <property name="MaxObjects" value="3"/>
+   </properties>
+  </object>
+  <object type="BadNeuron" x="787" y="416" width="37" height="45">
+   <properties>
+    <property name="MaxObjects" value="3"/>
+   </properties>
+  </object>
+  <object type="BadNeuron" x="294" y="419" width="37" height="45">
+   <properties>
+    <property name="MaxObjects" value="3"/>
+   </properties>
+  </object>
+  <object type="BadNeuron" x="363" y="860" width="37" height="45">
+   <properties>
+    <property name="MaxObjects" value="3"/>
+   </properties>
+  </object>
+  <object type="BadNeuron" x="840" y="175" width="37" height="45">
+   <properties>
+    <property name="MaxObjects" value="3"/>
+   </properties>
+  </object>
+  <object type="BadNeuron" x="136" y="163" width="37" height="45">
+   <properties>
+    <property name="MaxObjects" value="3"/>
+   </properties>
+  </object>
+  <object type="BadNeuron" x="779" y="667" width="37" height="45">
+   <properties>
+    <property name="MaxObjects" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

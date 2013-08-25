@@ -1,7 +1,12 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "Scenes/TitleScene.h"
+#include <SimpleAudioEngine.h>
 
 USING_NS_CC;
+
+#include "GamePlay.h"
+
+using namespace CocosDenshion;
 
 AppDelegate::AppDelegate() {
 
@@ -12,6 +17,13 @@ AppDelegate::~AppDelegate()
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
+    SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0);
+    SimpleAudioEngine::getInstance()->setEffectsVolume(0);
+    
+    std::vector<std::string> searchPaths;
+    searchPaths.push_back("main");
+    FileUtils::getInstance()->setSearchPaths(searchPaths);
+    
     // initialize director
     Director* director = Director::getInstance();
     EGLView* eglView = EGLView::getInstance();
@@ -19,14 +31,15 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setOpenGLView(eglView);
 	
     // turn on display FPS
-    director->setDisplayStats(true);
+    director->setDisplayStats(false);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
     // create a scene. it's an autorelease object
-    Scene *scene = HelloWorld::scene();
-
+    //Scene *scene = TitleScene::scene();
+    Scene *scene = GamePlay::scene();
+    
     // run
     director->runWithScene(scene);
 
@@ -38,7 +51,7 @@ void AppDelegate::applicationDidEnterBackground() {
     Director::getInstance()->stopAnimation();
 
     // if you use SimpleAudioEngine, it must be pause
-    // SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
+    SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
 }
 
 // this function will be called when the app is active again
@@ -46,5 +59,5 @@ void AppDelegate::applicationWillEnterForeground() {
     Director::getInstance()->startAnimation();
 
     // if you use SimpleAudioEngine, it must resume here
-    // SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+    SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }

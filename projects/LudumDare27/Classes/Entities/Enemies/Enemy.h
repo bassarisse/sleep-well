@@ -1,0 +1,41 @@
+//
+//  Enemy.h
+//  CampJam13
+//
+//  Created by Murilo Clemente - 27/07/13
+//
+//
+
+#ifndef __CampJam__Enemy__
+#define __CampJam__Enemy__
+
+#include "GameObject.h"
+#include "../Player.h"
+
+class Enemy : public GameObject {
+    
+protected:
+
+	Player* _playerReference;
+    
+    float _randomMovingTime;
+    bool _isRandomMoving;
+    Point _walkingPoint;
+
+public:
+    
+    virtual bool init(b2World *world, Dictionary *properties, Player* ref);
+    virtual void update(float dt);
+    virtual void updatePosition(Point position);
+
+	virtual void handleMovement();
+    virtual void die();
+    virtual bool isNearPlayer();
+    
+    CC_SYNTHESIZE(float, _sightRange, SightRange);
+    CC_SYNTHESIZE(bool, _randomMoveOnly, RandomMoveOnly);
+
+
+};
+
+#endif /* defined(__CampJam__Player__) */

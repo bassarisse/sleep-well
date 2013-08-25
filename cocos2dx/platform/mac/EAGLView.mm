@@ -450,7 +450,7 @@ static CCEAGLView *view;
 	DISPATCH_EVENT(theEvent, _cmd);
 	
 	// pass the event along to the next responder (like your NSWindow subclass)
-	[super keyDown:theEvent];
+	//[super keyDown:theEvent];
 }
 
 - (void)keyUp:(NSEvent *)theEvent
