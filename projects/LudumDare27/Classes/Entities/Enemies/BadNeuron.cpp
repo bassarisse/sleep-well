@@ -1,28 +1,31 @@
 #include "BadNeuron.h"
 
+#include "../../GameState.h"
 #include "SimpleAudioEngine.h"
 
 void BadNeuron::addFixtures() {
     
     float width = _node->getContentSize().width * 0.32f;
-    float height = _node->getContentSize().height * 0.2f;
+    //float height = _node->getContentSize().height * 0.2f;
     
-    this->addCircularFixture(0, -height * 2, width / 2);
-    //this->addRectangularFixture(0, -height * 2, width, height);
+    this->addCircularFixture(width / 2);
 
 } 
 
 bool BadNeuron::init(b2World *world, Dictionary *properties, Player *ref) {
 	
-	_node = Sprite::createWithSpriteFrameName("man_down.png");
-    _spriteFrameName = "man";
+	_node = Sprite::createWithSpriteFrameName("badneuron_1.png");
+    _spriteFrameName = "badneuron";
 
 	this->setType(GameObjectTypeBadNeuron);
 	
 	if (!Enemy::init(world, properties, ref))
         return false;
     
-	_speedFactor = -3.4f;
+    int level = GameState::getInstance()->getActLevel();
+    
+	_speedFactor = -3.4f + level * 0.1f;
+    _useIdleFrame = false;
     
     return true;
 }

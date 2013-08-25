@@ -21,7 +21,14 @@ void Nerve::handleCollision(GameObject *gameObject) {
     
     if (gameObject->getType() == GameObjectTypePulse) {
         
-        _player->setApneaLevel(_player->getApneaLevel() - ((Pulse *)gameObject)->getPower() * (0.5f - _level * 0.025f));
+        float apnea = _player->getApneaLevel();
+        float power = ((Pulse *)gameObject)->getPower();
+        float multiplier = kPowerFinalDifference - _level * kPowerLevelDifference;
+        
+        apnea -= power * multiplier * 2;
+        
+        _player->setApneaLevel(apnea);
+        _player->getGameScreen()->shakeScreen();
         
     }
     

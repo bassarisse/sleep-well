@@ -30,21 +30,53 @@ bool GameoverScene::init()  {
         return false;
     }
     
+    int apneaCount = 0;
+    int apneaLevel = 0;
+    float score = 0;
+    auto actTimes = GameState::getInstance()->getActTimes();
+    auto maxSize = actTimes.size();
+    
+    for (auto i = maxSize - maxSize; i < maxSize; i++) {
+        float actTime = actTimes[i];
+        
+        float addScore = 1000.0f;
+        
+        if (actTime > 10) {
+            
+            addScore = 500.0f;
+            apneaCount++;
+            
+        }
+        
+        score += addScore * (20 - actTime);
+        
+    }
+    
+    if (apneaCount > 1)
+        apneaLevel++;
+    if (apneaCount > 4)
+        apneaLevel++;
+    if (apneaCount > 7)
+        apneaLevel++;
+    
+    int scoreMultiplier = 4 - apneaLevel;
+    score *= scoreMultiplier;
+    
 	SimpleAudioEngine::getInstance()->stopBackgroundMusic(false);
     
 	auto bgSprite = Sprite::create("gameover.jpg");
-	bgSprite->setPosition(Point(this->getContentSize().width / 2,
-                              this->getContentSize().height / 2));
+	bgSprite->setPosition(Point(this->getContentSize().width / 2, this->getContentSize().height / 2));
 
 	auto scoreLabel = LabelBMFont::create(
-		String::createWithFormat("Your score: %d", 0)->getCString(), "MainFont.fnt", 600, Label::HAlignment::LEFT);
+		String::createWithFormat("Your score: %.0f", score)->getCString(), "MainFont.fnt", 600, Label::HAlignment::LEFT);
 
 	scoreLabel->setAnchorPoint(Point(0.0, 1.0));
 	scoreLabel->setPosition(Point(10, this->getContentSize().height - 10));
+    
+    GameState::getInstance()->clearActTimes();
  
 	auto startOpt = MenuItemImage::create("startover.png", "startover.png", [](Object* obj) {
 		SimpleAudioEngine::getInstance()->stopBackgroundMusic(false);
-        GameState::getInstance()->clearActTimes();
 		Scene *pScene = LevelTransition::scene();
 	
 		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, pScene));

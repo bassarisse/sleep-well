@@ -31,6 +31,7 @@ protected:
     bool _isSensor;
     bool _isKinematic;
     bool _shouldFlipSprite;
+    bool _useIdleFrame;
     std::vector<GameObject *> _contacts;
     kDirection _lastDirection;
     kDirection _lastVerticalDirection;

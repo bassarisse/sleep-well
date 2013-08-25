@@ -26,9 +26,11 @@ bool Enemy::init(b2World *world, Dictionary *properties, Player *ref) {
     
     if (rand() % 6 > 0)
         this->setSightRange(100 + rand() % 600);
-    this->setRandomMoveOnly(rand() % 3 == 0);
+    this->setRandomMoveOnly(rand() % 8 == 4);
     
     ((Sprite *)_node)->setOpacity(0);
+    
+    _body->SetGravityScale(0);
     
     return true;
 }
@@ -37,7 +39,7 @@ void Enemy::handleMovement() {
     
     if (!_randomMoveOnly && this->isNearPlayer()) {
         _isRandomMoving = false;
-        GameObject::handleMovement(this->getAngleForPoint(_playerReference->getNode()->getPosition()));
+        this->handleMovement(this->getAngleForPoint(_playerReference->getNode()->getPosition()));
     } else {
         
         Point thisPosition = this->getNode()->getPosition();
@@ -56,6 +58,15 @@ void Enemy::handleMovement() {
         _isRandomMoving = true;
         GameObject::handleMovement(this->getAngleForPoint(_walkingPoint));
     }
+}
+
+void Enemy::handleMovement(float angle) {
+    
+    angle += 40;
+    if (angle > 360)
+        angle -= 360;
+    
+    GameObject::handleMovement(angle);
 }
 
 void Enemy::update(float dt) {

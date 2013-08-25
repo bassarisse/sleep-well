@@ -82,11 +82,11 @@ bool GamePlay::init()
     //Size visibleSize = Director::getInstance()->getVisibleSize();
     //Point origin = Director::getInstance()->getVisibleOrigin();
     
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Characters.plist");
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("general.plist");
     
     _contactListener = new BAContactListener();
     _mainLayer = Layer::create();
-    _mainBatchNode = SpriteBatchNode::create("Characters.png");
+    _mainBatchNode = SpriteBatchNode::create("general.png");
     _tiledMap = TMXTiledMap::create("main.tmx");
     _isTouching = false;
     _touchLocation = Point(0, 0);
@@ -235,11 +235,12 @@ bool GamePlay::init()
             if (type) {
                 
                 GameObject *gameObject = NULL;
-                if(type->compare("Nerve") == 0)
+                if(type->compare("Nerve") == 0) {
                     gameObject = new Nerve();
+                    ((Nerve *)gameObject)->init(_world, objectProperties, _player);
+                }
                 
                 if (gameObject) {
-                    gameObject->init(_world, objectProperties);
                     fixtureDef.userData = gameObject;
                     _staticObjects.push_back(gameObject);
                 }
@@ -294,7 +295,7 @@ bool GamePlay::init()
     this->scheduleUpdate();
     
 	_debugLayer = NULL;
-    _debugLayer = B2DebugDrawLayer::create(_world, PTM_RATIO);
+    //_debugLayer = B2DebugDrawLayer::create(_world, PTM_RATIO);
     
     if (_debugLayer)
         this->addChild(_debugLayer, 9999);
@@ -318,6 +319,8 @@ void GamePlay::update(float dt) {
     _gameTime += dt;
     
     _timeLabel->setString(String::createWithFormat("%.1f", _gameTime)->getCString());
+    if (_gameTime > 10)
+        _timeLabel->setColor(Color3B(255, 100, 100));
     
     _player->setMovingHorizontalState(_movingHorizontalStates[_movingHorizontalStates.size() - 1]);
     _player->setMovingVerticalState(_movingVerticalStates[_movingVerticalStates.size() - 1]);
@@ -678,8 +681,7 @@ void GamePlay::shakeScreen() {
 void GamePlay::addPulse(float angle, float power) {
     
     auto pulse = new Pulse();
-    pulse->init(_world, NULL, _player, angle);
-    pulse->setPower(power);
+    pulse->init(_world, NULL, _player, angle, power);
     
     _mainBatchNode->addChild(pulse->getNode());
     _gameObjects.push_back(pulse);

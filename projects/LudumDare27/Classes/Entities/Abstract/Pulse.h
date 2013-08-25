@@ -16,7 +16,7 @@ protected:
 	
 public:
     
-    virtual bool init(b2World *world, Dictionary *properties, Player *player, float angle);
+    virtual bool init(b2World *world, Dictionary *properties, Player *player, float angle, float power);
     
     CC_SYNTHESIZE(float, _power, Power);
     

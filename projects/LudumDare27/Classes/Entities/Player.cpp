@@ -19,10 +19,9 @@ Player::~Player() {
 void Player::addFixtures() {
     
     float width = _node->getContentSize().width * 0.32f;
-    float height = _node->getContentSize().height * 0.2f;
+    //float height = _node->getContentSize().height * 0.2f;
     
-    this->addCircularFixture(0, -height * 2, width / 2);
-    //this->addRectangularFixture(0, -height * 2, width, height);
+    this->addCircularFixture(width / 2);
     
 }
 
@@ -33,11 +32,11 @@ bool Player::init(b2World *world, Dictionary *properties, GamePlay* gameScreen) 
 	_damageTime = 0.0f;
     _actionCooldownTime = 0.0f;
     _lastMovementAngle = -1;
-    _node = Sprite::createWithSpriteFrameName("stag_down.png");
+    _node = Sprite::createWithSpriteFrameName("neuron_1.png");
     _power = 0.0f;
     _apneaLevel = 100.0f;
     
-    _spriteFrameName = "stag";
+    _spriteFrameName = "neuron";
     
     this->setType(GameObjectTypePlayer);
     
@@ -45,6 +44,8 @@ bool Player::init(b2World *world, Dictionary *properties, GamePlay* gameScreen) 
 
     if (!GameObject::init(world, properties))
         return false;
+    
+    _useIdleFrame = false;
     
     return true;
 }
@@ -68,7 +69,7 @@ void Player::update(float dt) {
     _power += dt * kPowerChargeFactor;
     if (_power > 100) _power = 100;
     
-    _apneaLevel -= dt * (kApneaFactor - _level * 0.5f);
+    _apneaLevel -= dt * (kApneaFactor - _level * kApneaLevelDifference);
     
     this->executeWalkAnimation();
     
@@ -89,6 +90,8 @@ void Player::handleCollision(GameObject *gameObject) {
             _damageTime = kDamageTime;
             
 			SimpleAudioEngine::getInstance()->playEffect("player_hit.wav");
+            
+            _power *= kPowerDamage;
             
             Point thisPosition = _node->getPosition();
             Point enemyPosition = gameObject->getNode()->getPosition();

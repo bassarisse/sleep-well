@@ -29,6 +29,7 @@ public:
     virtual void updatePosition(Point position);
 
 	virtual void handleMovement();
+	virtual void handleMovement(float angle);
     virtual void die();
     virtual bool isNearPlayer();
     

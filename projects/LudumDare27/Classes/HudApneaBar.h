@@ -15,7 +15,6 @@ public:
 	void setLevel(float level);
 
 	LayerColor* _bar;
-	Sprite* _gaugeSprite;
     
 	void blinkBar();
 

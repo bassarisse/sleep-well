@@ -182,6 +182,7 @@ bool GameObject::init(b2World *world, Dictionary *properties, bool isSensor, boo
     _isSensor = isSensor;
     _isKinematic = isKinematic;
     _shouldFlipSprite = true;
+    _useIdleFrame = true;
     _lastDirection = kDirectionDown;
     _lastVerticalDirection = kDirectionDown;
     _lastHorizontalDirection = kDirectionRight;
@@ -220,8 +221,11 @@ void GameObject::update(float dt) {
     
     this->handleMovement();
     
-    if (_shouldFlipSprite)
-        ((Sprite *)_node)->setFlipX(_lastHorizontalDirection == kDirectionRight);
+    if (_shouldFlipSprite) {
+        auto sprite = ((Sprite *)_node);
+        sprite->setFlipX(_lastHorizontalDirection == kDirectionRight);
+        sprite->setFlipY(_lastVerticalDirection == kDirectionUp);
+    }
     
 }
 
@@ -275,6 +279,12 @@ void GameObject::handleMovement(float angle) {
     float x = (kWalkForce + this->getSpeed()) * cos(angle * M_PI / 180.0f);
     float y = (kWalkForce + this->getSpeed()) * sin(angle * M_PI / 180.0f);
     
+    if (y > 0) {
+        float multiplier = kImpulseYCut - kImpulseYCutLevelDifference * GameState::getInstance()->getActLevel();
+        float difference = 1.0f - multiplier;
+        y *= 1.0f - difference * _body->GetGravityScale();
+    }
+    
     float desiredXVel = 0;
     float desiredYVel = 0;
     
@@ -283,25 +293,21 @@ void GameObject::handleMovement(float angle) {
     switch (this->getMovingHorizontalState())
     {
         case MovingStateLeft:     desiredXVel = b2Max( vel.x - (abs(x)/3.0f), x); break;
-        case MovingStateHorizontalStopped:  desiredXVel = vel.x * 0.75f; break;
+        case MovingStateHorizontalStopped:  desiredXVel = vel.x * 0.9f; break;
         case MovingStateRight:    desiredXVel = b2Min( vel.x + (abs(x)/3.0f), x); break;
     }
     
     switch (this->getMovingVerticalState())
     {
         case MovingStateDown:     desiredYVel = b2Max( vel.y - (abs(y)/3.0f), y); break;
-        case MovingStateVerticalStopped:  desiredYVel = vel.y * 0.75f; break;
+        case MovingStateVerticalStopped:  desiredYVel = vel.y * 0.9f; break;
         case MovingStateUp:    desiredYVel = b2Min( vel.y + (abs(y)/3.0f), y); break;
-    }
-    
-    if (desiredYVel > 0) {
-        desiredYVel *= kImpulseYCut - 0.02f * GameState::getInstance()->getActLevel();
     }
     
     float xVelChange = desiredXVel - vel.x;
     float yVelChange = desiredYVel - vel.y;
     float xImpulse = _body->GetMass() * xVelChange;
-    float yImpulse = _body->GetMass() * yVelChange;
+    float yImpulse = _body->GetMass  () * yVelChange;
     
     _body->ApplyLinearImpulse( b2Vec2(xImpulse, yImpulse), _body->GetWorldCenter() );
     
@@ -392,7 +398,7 @@ bool GameObject::changeDirection(kDirection direction) {
 
 void GameObject::executeWalkAnimation() {
     
-    if (this->getState() == GameObjectStateWalking) {
+    if (!_useIdleFrame || this->getState() == GameObjectStateWalking) {
         
         float speed = (abs(kWalkForce + this->getSpeed())) / 1.9f;
         
@@ -402,14 +408,14 @@ void GameObject::executeWalkAnimation() {
             
             SpriteFrameCache *spriteCache = SpriteFrameCache::getInstance();
             
-            const char *frameNameVertical = getDirectionName(_lastVerticalDirection);
-            
             Animation *anim = Animation::create();
-            anim->setDelayPerUnit(0.5f);
+            anim->setDelayPerUnit(0.7f);
             anim->setRestoreOriginalFrame(true);
             
-            anim->addSpriteFrame(spriteCache->getSpriteFrameByName(String::createWithFormat("%s_%s1.png", _spriteFrameName, frameNameVertical)->getCString()));
-            anim->addSpriteFrame(spriteCache->getSpriteFrameByName(String::createWithFormat("%s_%s2.png", _spriteFrameName, frameNameVertical)->getCString()));
+            anim->addSpriteFrame(spriteCache->getSpriteFrameByName(String::createWithFormat("%s_1.png", _spriteFrameName)->getCString()));
+            anim->addSpriteFrame(spriteCache->getSpriteFrameByName(String::createWithFormat("%s_2.png", _spriteFrameName)->getCString()));
+            anim->addSpriteFrame(spriteCache->getSpriteFrameByName(String::createWithFormat("%s_3.png", _spriteFrameName)->getCString()));
+            anim->addSpriteFrame(spriteCache->getSpriteFrameByName(String::createWithFormat("%s_2.png", _spriteFrameName)->getCString()));
             
             walkAction = Speed::create(RepeatForever::create(Animate::create(anim)), speed);
             walkAction->setTag(kWalkActionTag);
@@ -433,8 +439,7 @@ void GameObject::executeWalkAnimation() {
 
 void GameObject::setIdleFrame () {
     
-    const char *frameNameVertical = getDirectionName(_lastVerticalDirection);
-    ((Sprite *)_node)->setDisplayFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(String::createWithFormat("%s_%s.png", _spriteFrameName, frameNameVertical)->getCString()));
+    ((Sprite *)_node)->setDisplayFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(String::createWithFormat("%s_1.png", _spriteFrameName)->getCString()));
     
 }
 
