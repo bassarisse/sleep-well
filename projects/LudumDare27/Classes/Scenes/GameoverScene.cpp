@@ -30,25 +30,83 @@ bool GameoverScene::init()  {
         return false;
     }
     
+	SimpleAudioEngine::getInstance()->stopBackgroundMusic(false);
+    
+	auto bgSprite = Sprite::create("gameover.png");
+    bgSprite->getTexture()->setAliasTexParameters();
+	bgSprite->setPosition(Point(this->getContentSize().width / 2, this->getContentSize().height / 2));
+	this->addChild(bgSprite);
+    
     int apneaCount = 0;
     int apneaLevel = 0;
-    float score = 0;
+    int score = 0;
     auto actTimes = GameState::getInstance()->getActTimes();
     auto maxSize = actTimes.size();
+    
+    auto titleColor = Color3B(50, 100, 200);
+    auto textColor = Color3B(40, 40, 40);
+    auto problemColor = Color3B(230, 30, 30);
+    
+    int x = 220;
+    int y = 547;
+    int ySpace = 20;
+    int xSpace = 120;
+    
+    y -= ySpace;
+    
+    auto resultsLabel = LabelBMFont::create("Results", "MicroFont.fnt", 100);
+    resultsLabel->getTexture()->setAliasTexParameters();
+    resultsLabel->setAnchorPoint(Point(0, 0));
+    resultsLabel->setPosition(x - xSpace * 0.2f, y);
+    resultsLabel->setColor(titleColor);
+    
+    this->addChild(resultsLabel);
     
     for (auto i = maxSize - maxSize; i < maxSize; i++) {
         float actTime = actTimes[i];
         
-        float addScore = 1000.0f;
+        float scoreBase = 100.0f;
+        float difference = 15.0f;
+        bool isApnea = actTime > 10;
         
-        if (actTime > 10) {
+        if (isApnea) {
             
-            addScore = 500.0f;
+            scoreBase = 50.0f;
+            difference = 20.0f;
             apneaCount++;
             
         }
         
-        score += addScore * (20 - actTime);
+        int addedScore = scoreBase * (difference - actTime);
+        
+        score += addedScore;
+        
+        y -= ySpace;
+        
+        auto actNumberLabel = LabelBMFont::create(String::createWithFormat("%ld", i + 1)->getCString(), "MicroFont.fnt", 100);
+        actNumberLabel->setAnchorPoint(Point(1, 0));
+        actNumberLabel->setPosition(x, y);
+        actNumberLabel->setColor(textColor);
+        
+        auto timeLabel = LabelBMFont::create(String::createWithFormat("%.1f", actTime)->getCString(), "MicroFont.fnt", 100);
+        timeLabel->setAnchorPoint(Point(1, 0));
+        timeLabel->setPosition(x + xSpace, y);
+        if (isApnea)
+            timeLabel->setColor(problemColor);
+        else
+            timeLabel->setColor(textColor);
+        
+        auto scoreLabel = LabelBMFont::create(String::createWithFormat("%i", addedScore)->getCString(), "MicroFont.fnt", 100);
+        scoreLabel->setAnchorPoint(Point(1, 0));
+        scoreLabel->setPosition(x + xSpace * 2, y);
+        if (addedScore < 0)
+            scoreLabel->setColor(problemColor);
+        else
+            scoreLabel->setColor(textColor);
+        
+        this->addChild(actNumberLabel);
+        this->addChild(timeLabel);
+        this->addChild(scoreLabel);
         
     }
     
@@ -60,40 +118,134 @@ bool GameoverScene::init()  {
         apneaLevel++;
     
     int scoreMultiplier = 4 - apneaLevel;
-    score *= scoreMultiplier;
+    int finalScore = score * scoreMultiplier;
     
-	SimpleAudioEngine::getInstance()->stopBackgroundMusic(false);
+    if (finalScore < 0)
+        finalScore = 0;
     
-	auto bgSprite = Sprite::create("gameover.jpg");
-	bgSprite->setPosition(Point(this->getContentSize().width / 2, this->getContentSize().height / 2));
-
-	auto scoreLabel = LabelBMFont::create(
-		String::createWithFormat("Your score: %.0f", score)->getCString(), "MainFont.fnt", 600, Label::HAlignment::LEFT);
-
-	scoreLabel->setAnchorPoint(Point(0.0, 1.0));
-	scoreLabel->setPosition(Point(10, this->getContentSize().height - 10));
+    int bestScore = UserDefault::getInstance()->getIntegerForKey("Record", 0);
+    
+    bool isRecord = finalScore > bestScore;
+    
+    if (isRecord) {
+        UserDefault::getInstance()->setIntegerForKey("Record", finalScore);
+        UserDefault::getInstance()->flush();
+    }
+    
+    y -= ySpace;
+    y -= ySpace;
+    
+    auto subtotalLabel = LabelBMFont::create("Subtotal", "MicroFont.fnt", 100);
+    subtotalLabel->setAnchorPoint(Point(1, 0));
+    subtotalLabel->setPosition(x + xSpace, y);
+    subtotalLabel->setColor(textColor);
+    
+    auto scoreLabel = LabelBMFont::create(String::createWithFormat("%i", score)->getCString(), "MicroFont.fnt", 100);
+    scoreLabel->setAnchorPoint(Point(1, 0));
+    scoreLabel->setPosition(x + xSpace * 2, y);
+    scoreLabel->setColor(textColor);
+    
+    y -= ySpace;
+    
+    auto multiplierLabel = LabelBMFont::create("Multiplier", "MicroFont.fnt", 100);
+    multiplierLabel->setAnchorPoint(Point(1, 0));
+    multiplierLabel->setPosition(x + xSpace, y);
+    multiplierLabel->setColor(textColor);
+    
+    auto multiplierNumberLabel = LabelBMFont::create(String::createWithFormat("x%i", scoreMultiplier)->getCString(), "MicroFont.fnt", 100);
+    multiplierNumberLabel->setAnchorPoint(Point(1, 0));
+    multiplierNumberLabel->setPosition(x + xSpace * 2, y);
+    multiplierNumberLabel->setColor(textColor);
+    
+    y -= ySpace;
+    y -= ySpace;
+    
+    auto totalLabel = LabelBMFont::create("Total", "MicroFont.fnt", 100);
+    totalLabel->setAnchorPoint(Point(1, 0));
+    totalLabel->setPosition(x + xSpace, y);
+    totalLabel->setColor(textColor);
+    
+    auto finalScoreLabel = LabelBMFont::create(String::createWithFormat("%i", finalScore)->getCString(), "MicroFont.fnt", 100);
+    finalScoreLabel->setAnchorPoint(Point(1, 0));
+    finalScoreLabel->setPosition(x + xSpace * 2, y);
+    finalScoreLabel->setColor(textColor);
+    
+    y -= ySpace;
+    
+    if (isRecord) {
+        
+        auto recordLabel = LabelBMFont::create("Record!", "MicroFont.fnt", 100);
+        recordLabel->setAnchorPoint(Point(1, 0));
+        recordLabel->setPosition(x + xSpace * 2, y);
+        recordLabel->setColor(Color3B(30, 180, 60));
+        
+        this->addChild(recordLabel);
+        
+    }
+    
+    y -= ySpace;
+    y -= ySpace;
+    
+    auto conclusionLabel = LabelBMFont::create("Conclusion", "MicroFont.fnt", 100);
+    conclusionLabel->setAnchorPoint(Point(0, 0));
+    conclusionLabel->setPosition(x - xSpace * 0.2f, y);
+    conclusionLabel->setColor(titleColor);
+    
+    auto conclusionTextLabel = LabelBMFont::create("", "MicroFont.fnt", 282, Label::HAlignment::LEFT);
+    conclusionTextLabel->setAnchorPoint(Point(0, 1));
+    conclusionTextLabel->setPosition(x - xSpace * 0.2f, y + 4);
+    conclusionTextLabel->setColor(textColor);
+    
+    switch (apneaLevel) {
+        case 0:
+            conclusionTextLabel->setString("Good, you don't have apnea!");
+            break;
+        case 1:
+            conclusionTextLabel->setString("A light case of apnea was detected.");
+            break;
+        case 2:
+            conclusionTextLabel->setString("You have a moderate sleep apnea.");
+            break;
+        case 3:
+            conclusionTextLabel->setString("A severe apnea case was diagnosed!");
+            break;
+            
+        default:
+            break;
+    }
+    
+    this->addChild(subtotalLabel);
+    this->addChild(scoreLabel);
+    this->addChild(multiplierLabel);
+    this->addChild(multiplierNumberLabel);
+    this->addChild(totalLabel);
+    this->addChild(finalScoreLabel);
+    this->addChild(conclusionLabel);
+    this->addChild(conclusionTextLabel);
     
     GameState::getInstance()->clearActTimes();
+    
+    auto restartLabel = LabelBMFont::create("Restart", "MainFont.fnt", 200, Label::HAlignment::CENTER);
+    auto returnLabel = LabelBMFont::create("Return", "MainFont.fnt", 200, Label::HAlignment::CENTER);
+    returnLabel->setColor(problemColor);
  
-	auto startOpt = MenuItemImage::create("startover.png", "startover.png", [](Object* obj) {
+	auto restartOpt = MenuItemLabel::create(restartLabel, [](Object* obj) {
 		SimpleAudioEngine::getInstance()->stopBackgroundMusic(false);
 		Scene *pScene = LevelTransition::scene();
 	
 		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, pScene));
 	});
 
-	auto returnOpt = MenuItemImage::create("return.png", "return.png", [](Object* obj) {
+	auto returnOpt = MenuItemLabel::create(returnLabel, [](Object* obj) {
 		Scene *pScene = TitleScene::scene();
 	
 		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, pScene));
 	});
 
-	_menu = Menu::create(startOpt, returnOpt, NULL);
+	_menu = Menu::create(restartOpt, returnOpt, NULL);
 	_menu->setPosition(Point(this->getContentSize().width - 170, this->getContentSize().height * 0.22f));
-	_menu->alignItemsVertically();
+	_menu->alignItemsVerticallyWithPadding(10);
     
-	this->addChild(bgSprite);
-	this->addChild(scoreLabel);
 	this->addChild(_menu);
     
 	return true;

@@ -13,7 +13,6 @@
 using namespace CocosDenshion;
 
 Player::~Player() {
-    _level = GameState::getInstance()->getActLevel();
 }
 
 void Player::addFixtures() {
@@ -27,6 +26,7 @@ void Player::addFixtures() {
 
 bool Player::init(b2World *world, Dictionary *properties, GamePlay* gameScreen) {
     
+    _level = GameState::getInstance()->getActLevel();
     _isFollowingPoint = false;
 	_pointToFollow = Point(0, 0);
 	_damageTime = 0.0f;

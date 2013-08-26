@@ -6,7 +6,7 @@
 
 using namespace cocos2d;
 
-class HudPowerBar : public Layer
+class HudPowerBar : public LayerColor
 {
     
 private:

@@ -29,6 +29,7 @@ void Nerve::handleCollision(GameObject *gameObject) {
         
         _player->setApneaLevel(apnea);
         _player->getGameScreen()->shakeScreen();
+        _player->getGameScreen()->flashScreen();
         
     }
     

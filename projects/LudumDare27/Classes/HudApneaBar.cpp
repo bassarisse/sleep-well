@@ -1,22 +1,28 @@
 #include "HudApneaBar.h"
 
 bool HudApneaBar::init() {
-	if ( !Layer::init() )
+	if ( !LayerColor::initWithColor(Color4B(0, 0, 0, 255)) )
     {
         return false;
     }
     
     auto winSize = Director::getInstance()->getWinSize();
 
-	this->setContentSize(Size(256,40));
-	this->setPosition(25, winSize.height - 48);
+	this->setContentSize(Size((int)(winSize.width * 0.25f), 20));
+	this->setAnchorPoint(Point(0, 0));
+	this->setPosition(8, winSize.height - 28);
 
-	_bar = LayerColor::create(Color4B(30, 230, 30, 255));
-	_bar->setPosition(5, 5);
+	_bar = LayerColor::create(Color4B(30, 130, 220, 255));
+	_bar->setAnchorPoint(Point(0, 0));
+	_bar->setPosition(1, 1);
     
-    this->update(0);
-	
+    auto label = LabelBMFont::create("APNEA", "MicroFont.fnt", 200, Label::HAlignment::LEFT);
+    label->getTexture()->setAliasTexParameters();
+	label->setAnchorPoint(Point(0, 0));
+    label->setPosition(2, -3);
+    
 	this->addChild(_bar);
+    this->addChild(label);
 
 	return true;
 }
@@ -24,7 +30,9 @@ bool HudApneaBar::init() {
 
 void HudApneaBar::setLevel(float level) {
     
-	_bar->setContentSize(Size(200 * (level / 100), 36));
+    auto thisSize = this->getContentSize();
+    
+	_bar->setContentSize(Size((thisSize.width - 2) * (level / 100), thisSize.height - 2));
     
 }
 

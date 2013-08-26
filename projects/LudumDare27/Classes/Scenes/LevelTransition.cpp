@@ -29,22 +29,29 @@ bool LevelTransition::init()  {
         return false;
     }
     
+    auto winSize = Director::getInstance()->getWinSize();
     int level = GameState::getInstance()->getActLevel();
+    
+    auto text = String::createWithFormat("Suspension of breathing\n%d / %i", level, kMaxLevel)->getCString();
 
-	auto scoreLabel = LabelBMFont::create(
-		String::createWithFormat("Act %d", level)->getCString(), "MainFont.fnt", 600, Label::HAlignment::CENTER);
-
+	auto scoreLabel = LabelBMFont::create(text, "MiniFont.fnt", winSize.width, Label::HAlignment::CENTER);
+    scoreLabel->getTexture()->setAliasTexParameters();
 	scoreLabel->setAnchorPoint(Point(0.5f, 0.5f));
 	scoreLabel->setPosition(Point(this->getContentSize().width / 2, this->getContentSize().height / 2));
     
 	this->addChild(scoreLabel);
     
+	return true;
+}
+
+void LevelTransition::onEnterTransitionDidFinish() {
+    BaseLayer::onEnterTransitionDidFinish();
+    
     this->runAction(Sequence::create(
                                      DelayTime::create(2.0f),
                                      CallFunc::create([]() {
-        Director::getInstance()->replaceScene(GamePlay::scene());
+        Director::getInstance()->replaceScene(TransitionFade::create(1.0f, GamePlay::scene()));
     }),
                                      NULL));
     
-	return true;
 }

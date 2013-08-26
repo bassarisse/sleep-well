@@ -6,7 +6,7 @@
 
 using namespace cocos2d;
 
-class HudApneaBar : public Layer
+class HudApneaBar : public LayerColor
 {
 public:
     

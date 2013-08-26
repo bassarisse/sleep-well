@@ -26,6 +26,7 @@ private:
     bool _buttonAPressed;
     
     float _gameTime;
+    bool _didFinish;
     
 public:
     virtual ~GamePlay();
@@ -89,6 +90,7 @@ public:
     
 	virtual void showScore(Point positionToShow, int scoreAmount);
 	virtual void shakeScreen();
+	virtual void flashScreen();
 	virtual void addPulse(float angle, float power);
 };
 

@@ -15,7 +15,7 @@ bool Pulse::init(b2World *world, Dictionary *properties, Player *player, float a
     auto playerNode = player->getNode();
     auto position = Point(playerNode->getPosition().x, playerNode->getPosition().y);
     
-    _node = Sprite::createWithSpriteFrameName("neuron_1.png");
+    _node = Sprite::createWithSpriteFrameName("pulse.png");
     _node->setPosition(position);
 	
 	this->setType(GameObjectTypePulse);
@@ -26,12 +26,13 @@ bool Pulse::init(b2World *world, Dictionary *properties, Player *player, float a
     if (!GameObject::init(world, properties, true, true))
         return false;
     
-    ((Sprite *)_node)->setColor(Color3B(100, 255, 100));
-    
     _shouldFlipSprite = false;
     
+    float nodeAngle = 360 - angle;
+    
     _body->SetGravityScale(0);
-    _node->setRotation(angle);
+    _node->setRotation(nodeAngle);
+    _node->setScale(0.5f + power / 200.0f);
     
     auto completionAction = CallFunc::create([this]() {
         this->setState(GameObjectStateDead);

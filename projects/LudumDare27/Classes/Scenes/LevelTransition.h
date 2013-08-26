@@ -14,6 +14,7 @@ public:
 
 	virtual bool init();
 	static Scene* scene();
+    virtual void onEnterTransitionDidFinish();
 
 };
 

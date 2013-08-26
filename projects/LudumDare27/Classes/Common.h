@@ -19,6 +19,8 @@ using namespace cocos2d;
 #define kImpulseYCutLevelDifference 0.02f
 #define kWalkForce 6.0f
 
+#define kMaxLevel 10
+
 #define kEnemyRandomRange 600
 #define kEnemyRandomTime 5.0f
 
@@ -37,7 +39,7 @@ using namespace cocos2d;
 #define kPowerLevelDifference 0.0125f
 
 #define kApneaFactor 5.0f
-#define kApneaLevelDifference 0.4f
+#define kApneaLevelDifference 0.2f
 
 #define kWalkActionTag 500
 #define kOverlayOpacity 210

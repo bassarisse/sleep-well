@@ -10,7 +10,7 @@ USING_NS_CC;
 using namespace CocosDenshion;
 
 TitleScene::~TitleScene() {
-	CC_SAFE_RELEASE(credits);
+	CC_SAFE_RELEASE(_credits);
 }
 
 Scene* TitleScene::scene()
@@ -39,36 +39,44 @@ bool TitleScene::init()  {
     
 	_creditsShown = false;
 
-	Sprite* bgSprite = Sprite::create("officerampage.png");
+	Sprite* bgSprite = Sprite::create("title.png");
 	bgSprite->setPosition(Point((this->getContentSize().width / 2), this->getContentSize().height / 2));
+    
+    auto startLabel = LabelBMFont::create("Start", "MainFont.fnt", 200, Label::HAlignment::CENTER);
+    auto helpLabel = LabelBMFont::create("Help", "MainFont.fnt", 200, Label::HAlignment::CENTER);
+    auto aboutLabel = LabelBMFont::create("About", "MainFont.fnt", 200, Label::HAlignment::CENTER);
 
-	MenuItemImage* startOpt = MenuItemImage::create("gettowork.png", "gettowork.png", [](Object* obj) {
+	auto startOpt = MenuItemLabel::create(startLabel, [](Object* obj) {
 		SimpleAudioEngine::getInstance()->stopBackgroundMusic(false);
 		Scene *pScene = LevelTransition::scene();
 	
 		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, pScene));
 	});
     
-	MenuItemImage* creditsOpt = MenuItemImage::create("credits.png", "credits.png",  [this](Object* obj) {
+	auto helpOpt = MenuItemLabel::create(helpLabel, [this](Object* obj) {
+        
+	});
+    
+	auto aboutOpt = MenuItemLabel::create(aboutLabel, [this](Object* obj) {
 		_creditsShown = true;
-		this->addChild(credits);
+		this->addChild(_credits);
         this->enableMenus(false);
 	});
     
-	LabelBMFont* creditsText = LabelBMFont::create("CREDITS\n \nCoding:\n Bruno Assarisse\nMurilo Clemente\n \nArt:\nCamila Christie\n \nMade in CampJam 2013\n within 48 hours :)", "MainFont.fnt", 750, Label::HAlignment::CENTER);
+	auto creditsText = LabelBMFont::create("ABOUT\n \nGame by:\nBruno Assarisse\n \nSpecial Thanks:\nCaroline Rodolfo <3\n \nMade for Ludum Dare 27\nwithin 72 hours :D", "MiniFont.fnt", 750, Label::HAlignment::CENTER);
 	creditsText->setPosition(Point(this->getContentSize().width / 2, this->getContentSize().height / 2));
 	
-	credits = LayerColor::create(Color4B(0, 0, 0, kOverlayOpacity));
-	credits->retain();
-	credits->setPosition(Point(0,0));
-	credits->setContentSize(Size(1024, 768));
-	credits->setAnchorPoint(Point(0, 0));
-	credits->setPosition(Point(0,0));
-	credits->addChild(creditsText);
+	_credits = LayerColor::create(Color4B(0, 0, 0, kOverlayOpacity));
+	_credits->retain();
+	_credits->setPosition(Point(0,0));
+	_credits->setContentSize(Size(1024, 768));
+	_credits->setAnchorPoint(Point(0, 0));
+	_credits->setPosition(Point(0,0));
+	_credits->addChild(creditsText);
 
-	_menu = Menu::create(startOpt, creditsOpt, NULL);
-	_menu->setPosition(Point(this->getContentSize().width / 2, 60));
-	_menu->alignItemsHorizontallyWithPadding(670);
+	_menu = Menu::create(startOpt, helpOpt, aboutOpt, NULL);
+	_menu->setPosition(Point(this->getContentSize().width - 170, this->getContentSize().height * 0.28f));
+	_menu->alignItemsVerticallyWithPadding(10);
 
 	this->addChild(bgSprite);
 	this->addChild(_menu);
@@ -101,7 +109,7 @@ void TitleScene::buttonAny(bool pressed) {
 	if(_creditsShown)
 	{
 		_creditsShown = false;
-		this->removeChild(credits);
+		this->removeChild(_credits);
         this->enableMenus(true);
 	}
 	

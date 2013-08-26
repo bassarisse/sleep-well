@@ -91,12 +91,26 @@ bool GamePlay::init()
     _isTouching = false;
     _touchLocation = Point(0, 0);
     _gameTime = 0;
+    _didFinish = false;
     
 	_tiledMap->getLayer("main")->getTexture()->setAliasTexParameters();
     _mainBatchNode->getTexture()->setAliasTexParameters();
     
     _mainLayer->addChild(_tiledMap);
     _mainLayer->addChild(_mainBatchNode);
+    
+    auto scaleFactor = 0.019f;
+    auto mapAction = Sequence::create(
+                                      ScaleTo::create(0.8f, 1.0f + scaleFactor),
+                                      ScaleTo::create(0.8f, 1.0f),
+                                      NULL);
+    
+    auto width = _tiledMap->getMapSize().width * _tiledMap->getTileSize().width;
+    auto height = _tiledMap->getMapSize().height * _tiledMap->getTileSize().height;
+    
+    _tiledMap->setAnchorPoint(Point(0.5f, 0.5f));
+    _tiledMap->setPosition(Point(width / 2, height / 2));
+    _tiledMap->runAction(RepeatForever::create(mapAction));
     
     this->addChild(_mainLayer);
     
@@ -272,8 +286,8 @@ bool GamePlay::init()
 	this->addChild(_hudPowerBar);
 	this->addChild(_hudApneaBar);
     
-    _timeLabel = LabelBMFont::create("0", "MainFont.fnt", _winSize.width / 5, Label::HAlignment::RIGHT);
-    
+    _timeLabel = LabelBMFont::create("0", "MiniFont.fnt", _winSize.width / 5, Label::HAlignment::RIGHT);
+    _timeLabel->getTexture()->setAliasTexParameters();
 	_timeLabel->setAnchorPoint(Point(1, 1));
 	_timeLabel->setPosition(Point(_winSize.width - 10, _winSize.height - 10));
     
@@ -385,18 +399,18 @@ void GamePlay::update(float dt) {
 	_hudPowerBar->setLevel(_player->getPower());
 	_hudApneaBar->setLevel(_player->getApneaLevel());
     
-    if (_player->getApneaLevel() <= 0) {
+    if (_player->getApneaLevel() <= 0 && !_didFinish) {
+        _didFinish = true;
         
         GameState::getInstance()->addActTime(_gameTime);
         
-        if (GameState::getInstance()->getActLevel() > 10) {
+        if (GameState::getInstance()->getActLevel() > kMaxLevel) {
             SimpleAudioEngine::getInstance()->playEffect("wilhem.wav");
-            Director::getInstance()->replaceScene(GameoverScene::scene());
+            Director::getInstance()->replaceScene(TransitionFade::create(1.0f, GameoverScene::scene()));
         } else {
-            Director::getInstance()->replaceScene(LevelTransition::scene());
+            Director::getInstance()->replaceScene(TransitionFade::create(1.0f, LevelTransition::scene()));
         }
         
-		return;
     }
 
 }
@@ -675,6 +689,22 @@ void GamePlay::shakeScreen() {
     
     this->stopAllActions();
     this->runAction(shakeAction);
+    
+}
+
+void GamePlay::flashScreen() {
+    
+    auto flash = LayerColor::create(Color4B(255, 255, 255, 255));
+    
+    auto flashAction = Sequence::create(
+                                           FadeOut::create(0.2f),
+                                           CallFunc::create([flash]() {
+        flash->removeFromParentAndCleanup(true);
+    }),
+                                           NULL);
+    
+    this->addChild(flash);
+    flash->runAction(flashAction);
     
 }
 

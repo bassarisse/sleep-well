@@ -12,12 +12,12 @@ private:
     
 	Menu *_menu;
 
+	LayerColor *_credits;
+	bool _creditsShown;
+
 public:
 
 	virtual ~TitleScene();
-
-	LayerColor *credits;
-	bool _creditsShown;
 
 	virtual bool init();
 	static Scene* scene();
