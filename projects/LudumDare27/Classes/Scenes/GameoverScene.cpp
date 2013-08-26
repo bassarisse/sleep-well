@@ -40,6 +40,11 @@ bool GameoverScene::init()  {
 	bgSprite->setPosition(Point(this->getContentSize().width / 2, this->getContentSize().height / 2));
 	this->addChild(bgSprite);
     
+	auto scoreHighlight = Sprite::create("score_highlight.png");
+    scoreHighlight->getTexture()->setAliasTexParameters();
+	scoreHighlight->setPosition(Point(this->getContentSize().width * 0.43f, this->getContentSize().height * 0.373f));
+	this->addChild(scoreHighlight);
+    
     int apneaCount = 0;
     int apneaLevel = 0;
     int score = 0;
