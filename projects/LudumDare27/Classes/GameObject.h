@@ -1,13 +1,6 @@
-//
-//  GameObject.h
-//  CampJam
-//
-//  Created by Bruno Assarisse on 23/07/13.
-//
-//
 
-#ifndef __CampJam__GameObject__
-#define __CampJam__GameObject__
+#ifndef __SleepWell__GameObject__
+#define __SleepWell__GameObject__
 
 #include "cocos2d.h"
 #include <Box2D/Box2D.h>
@@ -85,4 +78,4 @@ public:
 	CC_SYNTHESIZE(bool, _IsDestroyed, IsDestroyed);
 };
 
-#endif /* defined(__CampJam__GameObject__) */
+#endif /* defined(__SleepWell__GameObject__) */

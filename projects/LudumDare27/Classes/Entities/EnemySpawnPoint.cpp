@@ -1,10 +1,3 @@
-//
-//  EnemySpawnPoint.cpp
-//  CampJam2013
-//
-//  Created by Bruno Assarisse on 28/07/13.
-//
-//
 
 #include "EnemySpawnPoint.h"
 

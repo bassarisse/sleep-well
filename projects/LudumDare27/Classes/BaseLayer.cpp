@@ -1,10 +1,3 @@
-//
-//  BaseLayer.cpp
-//  CampJam
-//
-//  Created by Bruno Assarisse on 23/07/13.
-//
-//
 
 #include "BaseLayer.h"
 

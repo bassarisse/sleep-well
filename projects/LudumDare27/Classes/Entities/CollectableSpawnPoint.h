@@ -1,13 +1,6 @@
-//
-//  CollectableSpawnPoint.h
-//  CampJam2013
-//
-//  Created by Bruno Assarisse on 28/07/13.
-//
-//
 
-#ifndef __CampJam2013__CollectableSpawnPoint__
-#define __CampJam2013__CollectableSpawnPoint__
+#ifndef __SleepWell__CollectableSpawnPoint__
+#define __SleepWell__CollectableSpawnPoint__
 
 #include "cocos2d.h"
 #include "Common.h"
@@ -36,4 +29,4 @@ public:
     
 };
 
-#endif /* defined(__CampJam2013__CollectableSpawnPoint__) */
+#endif /* defined(__SleepWell__CollectableSpawnPoint__) */

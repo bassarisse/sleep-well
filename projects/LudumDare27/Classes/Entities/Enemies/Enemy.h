@@ -1,13 +1,6 @@
-//
-//  Enemy.h
-//  CampJam13
-//
-//  Created by Murilo Clemente - 27/07/13
-//
-//
 
-#ifndef __CampJam__Enemy__
-#define __CampJam__Enemy__
+#ifndef __SleepWell__Enemy__
+#define __SleepWell__Enemy__
 
 #include "GameObject.h"
 #include "../Player.h"
@@ -41,4 +34,4 @@ public:
 
 };
 
-#endif /* defined(__CampJam__Player__) */
+#endif /* defined(__SleepWell__Enemy__) */

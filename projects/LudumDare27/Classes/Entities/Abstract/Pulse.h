@@ -1,6 +1,6 @@
 
-#ifndef __CampJam2013__Pulse__
-#define __CampJam2013__Pulse__
+#ifndef __SleepWell__Pulse__
+#define __SleepWell__Pulse__
 
 #include "GameObject.h"
 
@@ -23,4 +23,4 @@ public:
     
 };
 
-#endif /* defined(__CampJam2013__Pulse__) */
+#endif /* defined(__SleepWell__Pulse__) */

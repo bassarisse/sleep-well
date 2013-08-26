@@ -1,13 +1,6 @@
-//
-//  Player.h
-//  CampJam
-//
-//  Created by Bruno Assarisse on 23/07/13.
-//
-//
 
-#ifndef __CampJam__Player__
-#define __CampJam__Player__
+#ifndef __SleepWell__Player__
+#define __SleepWell__Player__
 
 #include "GameObject.h"
 #include "../GamePlay.h"
@@ -48,4 +41,4 @@ public:
 
 };
 
-#endif /* defined(__CampJam__Player__) */
+#endif /* defined(__SleepWell__Player__) */

@@ -1,10 +1,3 @@
-//
-//  Player.cpp
-//  CampJam
-//
-//  Created by Bruno Assarisse on 23/07/13.
-//
-//
 
 #include "Player.h"
 #include "SimpleAudioEngine.h"

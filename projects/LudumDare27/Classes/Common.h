@@ -1,17 +1,10 @@
-//
-//  Common.h
-//  CampJam
-//
-//  Created by Bruno Assarisse on 25/07/13.
-//
-//
 
 #include "cocos2d.h"
 
 using namespace cocos2d;
 
-#ifndef CampJam_Common_h
-#define CampJam_Common_h
+#ifndef __SleepWell__Common__
+#define __SleepWell__Common__
 
 #define PTM_RATIO 32.0f
 #define kGravity -12
@@ -106,4 +99,4 @@ inline const char* getDirectionName(kDirection direction) {
     }
 }
 
-#endif
+#endif // __SleepWell__Common__

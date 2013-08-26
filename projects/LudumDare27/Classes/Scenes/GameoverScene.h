@@ -1,5 +1,5 @@
-#ifndef __CAMPJAM_GAMEOVER_H__
-#define __CAMPJAM_GAMEOVER_H__
+#ifndef __SleepWell__Gameoverscene__
+#define __SleepWell__Gameoverscene__
 
 #include "../BaseLayer.h"
 
@@ -23,4 +23,4 @@ public:
 
 };
 
-#endif // __CAMPJAM_SCENE_H__
+#endif // __SleepWell__Gameoverscene__

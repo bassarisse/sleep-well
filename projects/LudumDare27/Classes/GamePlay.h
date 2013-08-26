@@ -1,5 +1,5 @@
-#ifndef __CAMPJAM_SCENE_H__
-#define __CAMPJAM_SCENE_H__
+#ifndef __SleepWell__GamePlay__
+#define __SleepWell__GamePlay__
 
 #include "BaseLayer.h"
 #include "Box2D/Box2D.h"
@@ -95,4 +95,4 @@ public:
 	virtual void addPulse(float angle, float power);
 };
 
-#endif // __CAMPJAM_SCENE_H__
+#endif // __SleepWell__GamePlay__

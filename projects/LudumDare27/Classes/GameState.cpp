@@ -1,10 +1,3 @@
-//
-//  GameState.cpp
-//  LudumDare27
-//
-//  Created by Bruno Assarisse on 25/08/13.
-//
-//
 
 #include "GameState.h"
 

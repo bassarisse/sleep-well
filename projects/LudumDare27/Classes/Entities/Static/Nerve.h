@@ -1,6 +1,6 @@
 
-#ifndef __CampJam2013__Nerve__
-#define __CampJam2013__Nerve__
+#ifndef __SleepWell__Nerve__
+#define __SleepWell__Nerve__
 
 #include "GameObject.h"
 
@@ -21,4 +21,4 @@ public:
     
 };
 
-#endif /* defined(__CampJam2013__Nerve__) */
+#endif /* defined(__SleepWell__Nerve__) */

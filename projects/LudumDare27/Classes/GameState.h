@@ -1,13 +1,6 @@
-//
-//  GameState.h
-//  LudumDare27
-//
-//  Created by Bruno Assarisse on 25/08/13.
-//
-//
 
-#ifndef __LudumDare27__GameState__
-#define __LudumDare27__GameState__
+#ifndef __SleepWell__GameState__
+#define __SleepWell__GameState__
 
 #include "cocos2d.h"
 
@@ -35,4 +28,4 @@ public:
     
 };
 
-#endif /* defined(__LudumDare27__GameState__) */
+#endif /* defined(__SleepWell__GameState__) */

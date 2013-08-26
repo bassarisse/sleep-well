@@ -1,13 +1,6 @@
-//
-//  EnemySpawnPoint.h
-//  CampJam2013
-//
-//  Created by Bruno Assarisse on 28/07/13.
-//
-//
 
-#ifndef __CampJam2013__EnemySpawnPoint__
-#define __CampJam2013__EnemySpawnPoint__
+#ifndef __SleepWell__EnemySpawnPoint__
+#define __SleepWell__EnemySpawnPoint__
 
 #include "cocos2d.h"
 #include "Common.h"
@@ -36,4 +29,4 @@ public:
     
 };
 
-#endif /* defined(__CampJam2013__EnemySpawnPoint__) */
+#endif /* defined(__SleepWell__EnemySpawnPoint__) */

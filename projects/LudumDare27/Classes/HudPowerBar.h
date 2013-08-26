@@ -1,6 +1,6 @@
 
-#ifndef __CampJam__CoffeeBar__
-#define __CampJam__CoffeeBar__
+#ifndef __SleepWell__CoffeeBar__
+#define __SleepWell__CoffeeBar__
 
 #include "cocos2d.h"
 
@@ -25,4 +25,4 @@ public:
 };
 
 
-#endif /* defined(__CampJam__BaseLayer__) */
+#endif /* defined(__SleepWell__BaseLayer__) */

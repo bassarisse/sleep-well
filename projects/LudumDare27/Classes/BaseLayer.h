@@ -1,13 +1,6 @@
-//
-//  BaseLayer.h
-//  CampJam
-//
-//  Created by Bruno Assarisse on 23/07/13.
-//
-//
 
-#ifndef __CampJam__BaseLayer__
-#define __CampJam__BaseLayer__
+#ifndef __SleepWell__BaseLayer__
+#define __SleepWell__BaseLayer__
 
 #include "cocos2d.h"
 
@@ -44,4 +37,4 @@ public:
 };
 
 
-#endif /* defined(__CampJam__BaseLayer__) */
+#endif /* defined(__SleepWell__BaseLayer__) */

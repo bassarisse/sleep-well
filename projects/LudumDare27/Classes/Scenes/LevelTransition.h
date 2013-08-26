@@ -1,5 +1,5 @@
-#ifndef __LUDUMDARE_LEVELTRANSITION_H__
-#define __LUDUMDARE_LEVELTRANSITION_H__
+#ifndef __SleepWell__LevelTransition__
+#define __SleepWell__LevelTransition__
 
 #include "../BaseLayer.h"
 
@@ -18,4 +18,4 @@ public:
 
 };
 
-#endif // __LUDUMDARE_LEVELTRANSITION_H__
+#endif // __SleepWell__LevelTransition__

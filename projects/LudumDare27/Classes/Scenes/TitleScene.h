@@ -1,5 +1,5 @@
-#ifndef __CAMPJAM_TITLESCENE_H__
-#define __CAMPJAM_TITLESCENE_H__
+#ifndef __SleepWell__Titlescene__
+#define __SleepWell__Titlescene__
 
 #include "../BaseLayer.h"
 
@@ -35,4 +35,4 @@ public:
     
 };
 
-#endif // __CAMPJAM_SCENE_H__
+#endif // __SleepWell__Titlescene__

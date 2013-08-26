@@ -1,6 +1,6 @@
 
-#ifndef __CampJam__HealthBar__
-#define __CampJam__HealthBar__
+#ifndef __SleepWell__HealthBar__
+#define __SleepWell__HealthBar__
 
 #include "cocos2d.h"
 
@@ -21,4 +21,4 @@ public:
 };
 
 
-#endif /* defined(__CampJam__BaseLayer__) */
+#endif /* defined(__SleepWell__BaseLayer__) */

@@ -1,6 +1,6 @@
 
-#ifndef __CampJam__Man__
-#define __CampJam__Man__
+#ifndef __SleepWell__BadNeuron__
+#define __SleepWell__BadNeuron__
 
 #include "Enemy.h"
 
@@ -18,4 +18,4 @@ public:
 };
 
 
-#endif /* defined(__CampJam__Player__) */
+#endif /* defined(__SleepWell__BadNeuron__) */

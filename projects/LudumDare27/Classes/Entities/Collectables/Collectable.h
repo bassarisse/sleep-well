@@ -1,13 +1,6 @@
-//
-//  Enemy.h
-//  CampJam13
-//
-//  Created by Bruno Assarisse - 30/07/13
-//
-//
 
-#ifndef __CampJam__Collectable__
-#define __CampJam__Collectable__
+#ifndef __SleepWell__Collectable__
+#define __SleepWell__Collectable__
 
 #include "GameObject.h"
 
@@ -24,4 +17,4 @@ public:
     
 };
 
-#endif /* defined(__CampJam__Collectable__) */
+#endif /* defined(__SleepWell__Collectable__) */
