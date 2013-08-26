@@ -18,6 +18,7 @@ public:
     
     virtual bool init(b2World *world, Dictionary *properties, Player *player, float angle, float power);
     
+    CC_SYNTHESIZE(bool, _nerveHit, NerveHit);
     CC_SYNTHESIZE(float, _power, Power);
     
 };

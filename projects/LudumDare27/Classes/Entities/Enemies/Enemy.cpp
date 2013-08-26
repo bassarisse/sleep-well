@@ -1,6 +1,9 @@
 
 #include "Enemy.h"
+
 #include "Box2D/Box2D.h"
+
+#include "../Abstract/Pulse.h"
 
 bool Enemy::init(b2World *world, Dictionary *properties, Player *ref) {
     
@@ -12,6 +15,8 @@ bool Enemy::init(b2World *world, Dictionary *properties, Player *ref) {
     _randomMovingTime = 0.0f;
     _isRandomMoving = false;
     _walkingPoint = Point(0, 0);
+    _damageTime = 0;
+    _currentMaxDamageTime = 1;
     
     String *randomOnly = (String *)properties->objectForKey("Random");
     if (randomOnly)
@@ -37,6 +42,9 @@ bool Enemy::init(b2World *world, Dictionary *properties, Player *ref) {
 
 void Enemy::handleMovement() {
     
+    if (_damageTime > 0)
+        return;
+    
     if (!_randomMoveOnly && this->isNearPlayer()) {
         _isRandomMoving = false;
         this->handleMovement(this->getAngleForPoint(_playerReference->getNode()->getPosition()));
@@ -60,11 +68,29 @@ void Enemy::handleMovement() {
     }
 }
 
+void Enemy::handleCollision(GameObject *gameObject) {
+    
+    if (gameObject->getType() == GameObjectTypePulse) {
+        
+        auto pulse = ((Pulse *)gameObject);
+        
+        _currentMaxDamageTime = kEnemyDamageTime + kEnemyDamageTime * pulse->getPower() / 100.0f;
+        _damageTime = _currentMaxDamageTime;
+        
+        _body->SetLinearVelocity(b2Vec2(0, 0));
+        
+    }
+    
+}
+
 void Enemy::handleMovement(float angle) {
     
     angle += 40;
     if (angle > 360)
         angle -= 360;
+    
+    if (_damageTime > 0)
+        return;
     
     GameObject::handleMovement(angle);
 }
@@ -75,7 +101,15 @@ void Enemy::update(float dt) {
 
     GameObject::update(dt);
     
+    _damageTime -= dt;
+    if (_damageTime < 0)
+        _damageTime = 0;
+    
     Sprite *sprite = (Sprite *)_node;
+    
+    auto calcColor = 55 + 200 * (1 - _damageTime / _currentMaxDamageTime);
+    sprite->setColor(Color3B(255, calcColor, calcColor));
+    
     if (sprite->getOpacity() < 255) {
         int newOpacity = sprite->getOpacity() + dt * 500;
         if (newOpacity > 255) newOpacity = 255;
@@ -86,11 +120,6 @@ void Enemy::update(float dt) {
     
     this->executeWalkAnimation();
     
-}
-
-void Enemy::updatePosition(Point position) {
-    position.y += 6;
-    _node->setPosition(position);
 }
 
 void Enemy::die() {

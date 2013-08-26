@@ -4,9 +4,9 @@
 
 USING_NS_CC;
 
-#include "GameState.h"
-#include "Scenes/LevelTransition.h"
-#include "Scenes/GameoverScene.h"
+//#include "GameState.h"
+//#include "Scenes/LevelTransition.h"
+//#include "Scenes/GameoverScene.h"
 
 using namespace CocosDenshion;
 
@@ -39,7 +39,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / 60);
 
     // create a scene. it's an autorelease object
-    //Scene *scene = TitleScene::scene();
+    Scene *scene = TitleScene::scene();
+    /*
     GameState::getInstance()->addActTime(1);
     GameState::getInstance()->addActTime(1);
     GameState::getInstance()->addActTime(1);
@@ -51,6 +52,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     GameState::getInstance()->addActTime(1);
     GameState::getInstance()->addActTime(1);
     Scene *scene = GameoverScene::scene();
+     */
     
     // run
     director->runWithScene(scene);

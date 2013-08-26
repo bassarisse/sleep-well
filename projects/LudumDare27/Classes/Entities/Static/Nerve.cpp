@@ -21,8 +21,14 @@ void Nerve::handleCollision(GameObject *gameObject) {
     
     if (gameObject->getType() == GameObjectTypePulse) {
         
+        auto pulse = ((Pulse *)gameObject);
+        
+        if (pulse->getNerveHit())
+            return;
+        pulse->setNerveHit(true);
+        
         float apnea = _player->getApneaLevel();
-        float power = ((Pulse *)gameObject)->getPower();
+        float power = pulse->getPower();
         float multiplier = kPowerFinalDifference - _level * kPowerLevelDifference;
         
         apnea -= power * multiplier * 2;

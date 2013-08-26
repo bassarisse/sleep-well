@@ -23,6 +23,7 @@ using namespace cocos2d;
 
 #define kEnemyRandomRange 600
 #define kEnemyRandomTime 5.0f
+#define kEnemyDamageTime 0.5f
 
 #define kDamageTime 0.3f
 #define kDamageImpulse 20.0f
@@ -42,7 +43,7 @@ using namespace cocos2d;
 #define kApneaLevelDifference 0.2f
 
 #define kWalkActionTag 500
-#define kOverlayOpacity 210
+#define kOverlayOpacity 220
 
 #define greenLabelColor Color3B(150, 250, 150)
 #define yellowLabelColor Color3B(250, 220, 100)

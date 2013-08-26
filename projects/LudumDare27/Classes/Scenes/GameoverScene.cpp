@@ -46,6 +46,7 @@ bool GameoverScene::init()  {
     auto titleColor = Color3B(50, 100, 200);
     auto textColor = Color3B(40, 40, 40);
     auto problemColor = Color3B(230, 30, 30);
+    auto menuColor = Color3B(255, 255, 180);
     
     int x = 220;
     int y = 547;
@@ -225,8 +226,10 @@ bool GameoverScene::init()  {
     
     GameState::getInstance()->clearActTimes();
     
-    auto restartLabel = LabelBMFont::create("Restart", "MainFont.fnt", 200, Label::HAlignment::CENTER);
-    auto returnLabel = LabelBMFont::create("Return", "MainFont.fnt", 200, Label::HAlignment::CENTER);
+    auto restartLabel = LabelBMFont::create("Restart", "MiniFont.fnt", 200, Label::HAlignment::CENTER);
+    auto returnLabel = LabelBMFont::create("Return", "MiniFont.fnt", 200, Label::HAlignment::CENTER);
+    
+    restartLabel->setColor(menuColor);
     returnLabel->setColor(problemColor);
  
 	auto restartOpt = MenuItemLabel::create(restartLabel, [](Object* obj) {

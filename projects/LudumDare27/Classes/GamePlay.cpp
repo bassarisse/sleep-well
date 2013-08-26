@@ -101,8 +101,8 @@ bool GamePlay::init()
     
     auto scaleFactor = 0.019f;
     auto mapAction = Sequence::create(
-                                      ScaleTo::create(0.8f, 1.0f + scaleFactor),
-                                      ScaleTo::create(0.8f, 1.0f),
+                                      EaseInOut::create(ScaleTo::create(0.8f, 1.0f + scaleFactor), 2.0f),
+                                      EaseInOut::create(ScaleTo::create(0.8f, 1.0f), 2.0f),
                                       NULL);
     
     auto width = _tiledMap->getMapSize().width * _tiledMap->getTileSize().width;
@@ -163,7 +163,7 @@ bool GamePlay::init()
             
             GameObjectType gameObjectType = GameObjectTypeUnknown;
             
-            if(type->compare("BadNeuron") == 0 && enemyCount < level * 0.75f) {
+            if(type->compare("BadNeuron") == 0 && rand() % 2 == 0 && enemyCount < level * 0.75f) {
                 gameObjectType = GameObjectTypeBadNeuron;
                 enemyCount++;
             }
@@ -274,31 +274,33 @@ bool GamePlay::init()
     _movingHorizontalStates.push_back(MovingStateHorizontalStopped);
     _movingVerticalStates.push_back(MovingStateVerticalStopped);
     
+    // HUD ----------
+    
 	_hudPowerBar = new HudPowerBar();
-	_hudApneaBar = new HudApneaBar();
-
 	_hudPowerBar->init();
 	_hudPowerBar->autorelease();
-	
+    
+	_hudApneaBar = new HudApneaBar();
 	_hudApneaBar->init();
 	_hudApneaBar->autorelease();
 
-	this->addChild(_hudPowerBar);
-	this->addChild(_hudApneaBar);
-    
     _timeLabel = LabelBMFont::create("0", "MiniFont.fnt", _winSize.width / 5, Label::HAlignment::RIGHT);
     _timeLabel->getTexture()->setAliasTexParameters();
 	_timeLabel->setAnchorPoint(Point(1, 1));
 	_timeLabel->setPosition(Point(_winSize.width - 10, _winSize.height - 10));
     
+	this->addChild(_hudPowerBar);
+	this->addChild(_hudApneaBar);
 	this->addChild(_timeLabel);
+    
+    // PAUSE ----------
 
 	_pauseLayer = LayerColor::create(Color4B(0, 0, 0, 130));
 	_pauseLayer->retain();
 	_pauseLayer->setPosition(Point(0,0));
 	_pauseLayer->setContentSize(Size(1024, 768));
     
-	LabelBMFont* pauseLabel = LabelBMFont::create("Paused!", "MainFont.fnt", 300, Label::HAlignment::CENTER);
+	LabelBMFont* pauseLabel = LabelBMFont::create("Paused!", "MiniFont.fnt", 300, Label::HAlignment::CENTER);
 	pauseLabel->setAnchorPoint(Point(0.5f, 0.5f));
 	pauseLabel->setPosition(Point(this->getContentSize().width / 2, this->getContentSize().height / 2));
     
@@ -307,6 +309,9 @@ bool GamePlay::init()
 	_isPaused = false;
 
     this->scheduleUpdate();
+	SimpleAudioEngine::getInstance()->preloadBackgroundMusic("main_bgm.wav");
+    
+    // DEBUG ----------
     
 	_debugLayer = NULL;
     //_debugLayer = B2DebugDrawLayer::create(_world, PTM_RATIO);
@@ -314,7 +319,6 @@ bool GamePlay::init()
     if (_debugLayer)
         this->addChild(_debugLayer, 9999);
     
-	SimpleAudioEngine::getInstance()->preloadBackgroundMusic("main_bgm.wav");
 
     return true;
 }
@@ -330,11 +334,12 @@ void GamePlay::update(float dt) {
         _player->followPoint(touchLocation);
     }
     
-    _gameTime += dt;
+    if (!_didFinish)
+        _gameTime += dt;
     
     _timeLabel->setString(String::createWithFormat("%.1f", _gameTime)->getCString());
     if (_gameTime > 10)
-        _timeLabel->setColor(Color3B(255, 100, 100));
+        _timeLabel->setColor(Color3B(255, 80, 80));
     
     _player->setMovingHorizontalState(_movingHorizontalStates[_movingHorizontalStates.size() - 1]);
     _player->setMovingVerticalState(_movingVerticalStates[_movingVerticalStates.size() - 1]);
@@ -511,6 +516,11 @@ void GamePlay::ccTouchCancelled(cocos2d::Touch *pTouch, cocos2d::Event *pEvent) 
     _player->stopFollowingPoint();
 }
 
+void GamePlay::handleKey(int keyCode, bool pressed) {
+    if (!_didFinish)
+        BaseLayer::handleKey(keyCode, pressed);
+}
+
 void GamePlay::buttonLeft(bool pressed) {
     
     if (pressed) {
@@ -645,7 +655,7 @@ void GamePlay::onEnter() {
 void GamePlay::showScore(Point positionToShow, int scoreAmount) {
 	LabelBMFont *deathScore = LabelBMFont::create(
 					String::createWithFormat("%d", scoreAmount)->getCString(), 
-					"MainFont.fnt", 50, Label::HAlignment::CENTER);
+					"MiniFont.fnt", 50, Label::HAlignment::CENTER);
 
 	//deathScore->setPosition(Point(_node->getPosition().x + (_node->getContentSize().width / 2),
 	//	_node->getPosition().y + (_node->getContentSize().height + 10)));

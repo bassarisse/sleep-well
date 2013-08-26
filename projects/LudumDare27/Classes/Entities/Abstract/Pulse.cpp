@@ -21,6 +21,7 @@ bool Pulse::init(b2World *world, Dictionary *properties, Player *player, float a
 	this->setType(GameObjectTypePulse);
     
     _player = player;
+    _nerveHit = false;
     _power = power;
     
     if (!GameObject::init(world, properties, true, true))

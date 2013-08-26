@@ -16,7 +16,7 @@ bool HudPowerBar::init() {
 	_bar->setAnchorPoint(Point(0, 0));
 	_bar->setPosition(1, 1);
     
-    auto label = LabelBMFont::create("POWER", "MicroFont.fnt", 200, Label::HAlignment::LEFT);
+    auto label = LabelBMFont::create("ENERGY", "MicroFont.fnt", 200, Label::HAlignment::LEFT);
     label->getTexture()->setAliasTexParameters();
 	label->setAnchorPoint(Point(0, 0));
     label->setPosition(2, -3);

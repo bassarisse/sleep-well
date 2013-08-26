@@ -79,6 +79,7 @@ public:
     virtual void ccTouchEnded(cocos2d::Touch *pTouch, cocos2d::Event *pEvent);
     virtual void ccTouchCancelled(cocos2d::Touch *pTouch, cocos2d::Event *pEvent);
     
+    virtual void handleKey(int keyCode, bool pressed);
     virtual void buttonLeft(bool pressed);
     virtual void buttonRight(bool pressed);
     virtual void buttonUp(bool pressed);

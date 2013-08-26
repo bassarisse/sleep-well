@@ -71,6 +71,9 @@ void Player::update(float dt) {
     
     _apneaLevel -= dt * (kApneaFactor - _level * kApneaLevelDifference);
     
+    if (_apneaLevel < 0)
+        _apneaLevel = 0;
+    
     this->executeWalkAnimation();
     
 }

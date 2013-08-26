@@ -21,13 +21,15 @@ protected:
     float _randomMovingTime;
     bool _isRandomMoving;
     Point _walkingPoint;
+    float _damageTime;
+    float _currentMaxDamageTime;
 
 public:
     
     virtual bool init(b2World *world, Dictionary *properties, Player* ref);
     virtual void update(float dt);
-    virtual void updatePosition(Point position);
-
+    
+	virtual void handleCollision(GameObject *gameObject);
 	virtual void handleMovement();
 	virtual void handleMovement(float angle);
     virtual void die();

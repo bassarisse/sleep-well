@@ -11,7 +11,10 @@ class TitleScene : public BaseLayer
 private:
     
 	Menu *_menu;
-
+    
+	LayerColor *_help;
+	bool _helpShown;
+    
 	LayerColor *_credits;
 	bool _creditsShown;
 
