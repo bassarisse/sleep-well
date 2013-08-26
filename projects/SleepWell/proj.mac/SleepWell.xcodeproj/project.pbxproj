@@ -18,36 +18,37 @@
 		15C64833165F3AFD007D4F18 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C64832165F3AFD007D4F18 /* Foundation.framework */; };
 		15C6498716633E65007D4F18 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15C6498616633E65007D4F18 /* libcurl.a */; };
 		1AF4C39717865FD400122817 /* libbox2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C37817865FB200122817 /* libbox2d Mac.a */; };
+		1AF4C39817865FD400122817 /* libchipmunk Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C37617865FB200122817 /* libchipmunk Mac.a */; };
 		1AF4C39917865FD400122817 /* libcocos2dx Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C37217865FB200122817 /* libcocos2dx Mac.a */; };
 		1AF4C39A17865FD400122817 /* libcocos2dx-extensions Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C37417865FB200122817 /* libcocos2dx-extensions Mac.a */; };
 		1AF4C39B17865FD400122817 /* libCocosDenshion Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF4C37A17865FB200122817 /* libCocosDenshion Mac.a */; };
-		1AFAF8CA16D3886000DB1158 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8C616D3886000DB1158 /* AppDelegate.cpp */; };
 		41BC70E415BF81A5006A0A6C /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 41BC70DA15BF81A5006A0A6C /* AppController.mm */; };
 		41BC70E515BF81A5006A0A6C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41BC70DC15BF81A5006A0A6C /* InfoPlist.strings */; };
 		41BC70E615BF81A5006A0A6C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41BC70DE15BF81A5006A0A6C /* MainMenu.xib */; };
 		41BC70E715BF81A5006A0A6C /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 41BC70E015BF81A5006A0A6C /* Icon.icns */; };
 		41BC70E815BF81A5006A0A6C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BC70E115BF81A5006A0A6C /* main.m */; };
-		62442A3617C86AE80038F7AB /* B2DebugDrawLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A3217C86AE80038F7AB /* B2DebugDrawLayer.cpp */; };
-		62442A3717C86AE80038F7AB /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A3417C86AE80038F7AB /* GLES-Render.cpp */; };
-		62442A7417C91FA20038F7AB /* BAContactListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A3C17C91F9D0038F7AB /* BAContactListener.cpp */; };
-		62442A7517C91FA20038F7AB /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A3E17C91F9D0038F7AB /* BaseLayer.cpp */; };
-		62442A7617C91FA20038F7AB /* HudPowerBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A4017C91F9D0038F7AB /* HudPowerBar.cpp */; };
-		62442A7817C91FA20038F7AB /* Collectable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A4717C91F9F0038F7AB /* Collectable.cpp */; };
-		62442A7C17C91FA20038F7AB /* CollectableSpawnPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A4F17C91F9F0038F7AB /* CollectableSpawnPoint.cpp */; };
-		62442A7D17C91FA20038F7AB /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A5217C91F9F0038F7AB /* Enemy.cpp */; };
-		62442A7E17C91FA20038F7AB /* BadNeuron.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A5417C91F9F0038F7AB /* BadNeuron.cpp */; };
-		62442A8117C91FA20038F7AB /* EnemySpawnPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A5A17C91F9F0038F7AB /* EnemySpawnPoint.cpp */; };
-		62442A8217C91FA20038F7AB /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A5C17C91F9F0038F7AB /* Player.cpp */; };
-		62442A8417C91FA20038F7AB /* Nerve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A6117C91F9F0038F7AB /* Nerve.cpp */; };
-		62442A8817C91FA20038F7AB /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A6917C91F9F0038F7AB /* GameObject.cpp */; };
-		62442A8917C91FA20038F7AB /* GamePlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A6B17C91F9F0038F7AB /* GamePlay.cpp */; };
-		62442A8A17C91FA20038F7AB /* HudApneaBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A6D17C91FA10038F7AB /* HudApneaBar.cpp */; };
-		62442A8B17C91FA20038F7AB /* GameoverScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A7017C91FA20038F7AB /* GameoverScene.cpp */; };
-		62442A8C17C91FA20038F7AB /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62442A7217C91FA20038F7AB /* TitleScene.cpp */; };
-		62442A9117C92DC70038F7AB /* main in Resources */ = {isa = PBXBuildFile; fileRef = 62442A9017C92DC70038F7AB /* main */; };
-		62472F7417C98582005BD0C4 /* LevelTransition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62472F7217C98582005BD0C4 /* LevelTransition.cpp */; };
-		62472F8317C9B058005BD0C4 /* Pulse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62472F8117C9B058005BD0C4 /* Pulse.cpp */; };
-		62472F8917C9C320005BD0C4 /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62472F8717C9C320005BD0C4 /* GameState.cpp */; };
+		62C1EAE217CC1207002910A3 /* main in Resources */ = {isa = PBXBuildFile; fileRef = 62C1EAE117CC1207002910A3 /* main */; };
+		62C1EB1517CC1216002910A3 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EAE317CC1216002910A3 /* AppDelegate.cpp */; };
+		62C1EB1617CC1216002910A3 /* B2DebugDrawLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EAE617CC1216002910A3 /* B2DebugDrawLayer.cpp */; };
+		62C1EB1717CC1216002910A3 /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EAE817CC1216002910A3 /* GLES-Render.cpp */; };
+		62C1EB1817CC1216002910A3 /* BAContactListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EAEA17CC1216002910A3 /* BAContactListener.cpp */; };
+		62C1EB1917CC1216002910A3 /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EAEC17CC1216002910A3 /* BaseLayer.cpp */; };
+		62C1EB1A17CC1216002910A3 /* Pulse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EAF117CC1216002910A3 /* Pulse.cpp */; };
+		62C1EB1B17CC1216002910A3 /* Collectable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EAF417CC1216002910A3 /* Collectable.cpp */; };
+		62C1EB1C17CC1216002910A3 /* CollectableSpawnPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EAF617CC1216002910A3 /* CollectableSpawnPoint.cpp */; };
+		62C1EB1D17CC1216002910A3 /* BadNeuron.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EAF917CC1216002910A3 /* BadNeuron.cpp */; };
+		62C1EB1E17CC1216002910A3 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EAFB17CC1216002910A3 /* Enemy.cpp */; };
+		62C1EB1F17CC1216002910A3 /* EnemySpawnPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EAFD17CC1216002910A3 /* EnemySpawnPoint.cpp */; };
+		62C1EB2017CC1216002910A3 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EAFF17CC1216002910A3 /* Player.cpp */; };
+		62C1EB2117CC1216002910A3 /* Nerve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EB0217CC1216002910A3 /* Nerve.cpp */; };
+		62C1EB2217CC1216002910A3 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EB0417CC1216002910A3 /* GameObject.cpp */; };
+		62C1EB2317CC1216002910A3 /* GamePlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EB0617CC1216002910A3 /* GamePlay.cpp */; };
+		62C1EB2417CC1216002910A3 /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EB0817CC1216002910A3 /* GameState.cpp */; };
+		62C1EB2517CC1216002910A3 /* HudApneaBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EB0A17CC1216002910A3 /* HudApneaBar.cpp */; };
+		62C1EB2617CC1216002910A3 /* HudPowerBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EB0C17CC1216002910A3 /* HudPowerBar.cpp */; };
+		62C1EB2717CC1216002910A3 /* GameoverScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EB0F17CC1216002910A3 /* GameoverScene.cpp */; };
+		62C1EB2817CC1216002910A3 /* LevelTransition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EB1117CC1216002910A3 /* LevelTransition.cpp */; };
+		62C1EB2917CC1216002910A3 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C1EB1317CC1216002910A3 /* TitleScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,9 +199,7 @@
 		15C64832165F3AFD007D4F18 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		15C6498616633E65007D4F18 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1AF4C35E17865FB100122817 /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../../../cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
-		1AFAF8C616D3886000DB1158 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
-		1AFAF8C716D3886000DB1158 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* LudumDare27.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LudumDare27.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* SleepWell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepWell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BC70D915BF81A5006A0A6C /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = SOURCE_ROOT; };
 		41BC70DA15BF81A5006A0A6C /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = SOURCE_ROOT; };
 		41BC70DD15BF81A5006A0A6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -209,48 +208,50 @@
 		41BC70E115BF81A5006A0A6C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		41BC70E215BF81A5006A0A6C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		41BC70E315BF81A5006A0A6C /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = SOURCE_ROOT; };
-		62442A3217C86AE80038F7AB /* B2DebugDrawLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = B2DebugDrawLayer.cpp; sourceTree = "<group>"; };
-		62442A3317C86AE80038F7AB /* B2DebugDrawLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B2DebugDrawLayer.h; sourceTree = "<group>"; };
-		62442A3417C86AE80038F7AB /* GLES-Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "GLES-Render.cpp"; sourceTree = "<group>"; };
-		62442A3517C86AE80038F7AB /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
-		62442A3C17C91F9D0038F7AB /* BAContactListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BAContactListener.cpp; sourceTree = "<group>"; };
-		62442A3D17C91F9D0038F7AB /* BAContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAContactListener.h; sourceTree = "<group>"; };
-		62442A3E17C91F9D0038F7AB /* BaseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseLayer.cpp; sourceTree = "<group>"; };
-		62442A3F17C91F9D0038F7AB /* BaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLayer.h; sourceTree = "<group>"; };
-		62442A4017C91F9D0038F7AB /* HudPowerBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HudPowerBar.cpp; sourceTree = "<group>"; };
-		62442A4117C91F9E0038F7AB /* HudPowerBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudPowerBar.h; sourceTree = "<group>"; };
-		62442A4217C91F9E0038F7AB /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		62442A4717C91F9F0038F7AB /* Collectable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Collectable.cpp; sourceTree = "<group>"; };
-		62442A4817C91F9F0038F7AB /* Collectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collectable.h; sourceTree = "<group>"; };
-		62442A4F17C91F9F0038F7AB /* CollectableSpawnPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollectableSpawnPoint.cpp; sourceTree = "<group>"; };
-		62442A5017C91F9F0038F7AB /* CollectableSpawnPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectableSpawnPoint.h; sourceTree = "<group>"; };
-		62442A5217C91F9F0038F7AB /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
-		62442A5317C91F9F0038F7AB /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
-		62442A5417C91F9F0038F7AB /* BadNeuron.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BadNeuron.cpp; sourceTree = "<group>"; };
-		62442A5517C91F9F0038F7AB /* BadNeuron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadNeuron.h; sourceTree = "<group>"; };
-		62442A5A17C91F9F0038F7AB /* EnemySpawnPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemySpawnPoint.cpp; sourceTree = "<group>"; };
-		62442A5B17C91F9F0038F7AB /* EnemySpawnPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemySpawnPoint.h; sourceTree = "<group>"; };
-		62442A5C17C91F9F0038F7AB /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
-		62442A5D17C91F9F0038F7AB /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		62442A6117C91F9F0038F7AB /* Nerve.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Nerve.cpp; sourceTree = "<group>"; };
-		62442A6217C91F9F0038F7AB /* Nerve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nerve.h; sourceTree = "<group>"; };
-		62442A6917C91F9F0038F7AB /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
-		62442A6A17C91F9F0038F7AB /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
-		62442A6B17C91F9F0038F7AB /* GamePlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GamePlay.cpp; sourceTree = "<group>"; };
-		62442A6C17C91FA00038F7AB /* GamePlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlay.h; sourceTree = "<group>"; };
-		62442A6D17C91FA10038F7AB /* HudApneaBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HudApneaBar.cpp; sourceTree = "<group>"; };
-		62442A6E17C91FA10038F7AB /* HudApneaBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HudApneaBar.h; sourceTree = "<group>"; };
-		62442A7017C91FA20038F7AB /* GameoverScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameoverScene.cpp; sourceTree = "<group>"; };
-		62442A7117C91FA20038F7AB /* GameoverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameoverScene.h; sourceTree = "<group>"; };
-		62442A7217C91FA20038F7AB /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
-		62442A7317C91FA20038F7AB /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
-		62442A9017C92DC70038F7AB /* main */ = {isa = PBXFileReference; lastKnownFileType = folder; path = main; sourceTree = "<group>"; };
-		62472F7217C98582005BD0C4 /* LevelTransition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelTransition.cpp; path = ../../Classes/Scenes/LevelTransition.cpp; sourceTree = "<group>"; };
-		62472F7317C98582005BD0C4 /* LevelTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelTransition.h; path = ../../Classes/Scenes/LevelTransition.h; sourceTree = "<group>"; };
-		62472F8117C9B058005BD0C4 /* Pulse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pulse.cpp; sourceTree = "<group>"; };
-		62472F8217C9B058005BD0C4 /* Pulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pulse.h; sourceTree = "<group>"; };
-		62472F8717C9C320005BD0C4 /* GameState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameState.cpp; path = ../Classes/GameState.cpp; sourceTree = "<group>"; };
-		62472F8817C9C320005BD0C4 /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameState.h; path = ../Classes/GameState.h; sourceTree = "<group>"; };
+		62C1EAE117CC1207002910A3 /* main */ = {isa = PBXFileReference; lastKnownFileType = folder; path = main; sourceTree = "<group>"; };
+		62C1EAE317CC1216002910A3 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
+		62C1EAE417CC1216002910A3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
+		62C1EAE617CC1216002910A3 /* B2DebugDrawLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = B2DebugDrawLayer.cpp; sourceTree = "<group>"; };
+		62C1EAE717CC1216002910A3 /* B2DebugDrawLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B2DebugDrawLayer.h; sourceTree = "<group>"; };
+		62C1EAE817CC1216002910A3 /* GLES-Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "GLES-Render.cpp"; sourceTree = "<group>"; };
+		62C1EAE917CC1216002910A3 /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
+		62C1EAEA17CC1216002910A3 /* BAContactListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BAContactListener.cpp; path = ../Classes/BAContactListener.cpp; sourceTree = "<group>"; };
+		62C1EAEB17CC1216002910A3 /* BAContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BAContactListener.h; path = ../Classes/BAContactListener.h; sourceTree = "<group>"; };
+		62C1EAEC17CC1216002910A3 /* BaseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseLayer.cpp; path = ../Classes/BaseLayer.cpp; sourceTree = "<group>"; };
+		62C1EAED17CC1216002910A3 /* BaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseLayer.h; path = ../Classes/BaseLayer.h; sourceTree = "<group>"; };
+		62C1EAEE17CC1216002910A3 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ../Classes/Common.h; sourceTree = "<group>"; };
+		62C1EAF117CC1216002910A3 /* Pulse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pulse.cpp; sourceTree = "<group>"; };
+		62C1EAF217CC1216002910A3 /* Pulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pulse.h; sourceTree = "<group>"; };
+		62C1EAF417CC1216002910A3 /* Collectable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Collectable.cpp; sourceTree = "<group>"; };
+		62C1EAF517CC1216002910A3 /* Collectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collectable.h; sourceTree = "<group>"; };
+		62C1EAF617CC1216002910A3 /* CollectableSpawnPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollectableSpawnPoint.cpp; sourceTree = "<group>"; };
+		62C1EAF717CC1216002910A3 /* CollectableSpawnPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectableSpawnPoint.h; sourceTree = "<group>"; };
+		62C1EAF917CC1216002910A3 /* BadNeuron.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BadNeuron.cpp; sourceTree = "<group>"; };
+		62C1EAFA17CC1216002910A3 /* BadNeuron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadNeuron.h; sourceTree = "<group>"; };
+		62C1EAFB17CC1216002910A3 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
+		62C1EAFC17CC1216002910A3 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
+		62C1EAFD17CC1216002910A3 /* EnemySpawnPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemySpawnPoint.cpp; sourceTree = "<group>"; };
+		62C1EAFE17CC1216002910A3 /* EnemySpawnPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemySpawnPoint.h; sourceTree = "<group>"; };
+		62C1EAFF17CC1216002910A3 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		62C1EB0017CC1216002910A3 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		62C1EB0217CC1216002910A3 /* Nerve.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Nerve.cpp; sourceTree = "<group>"; };
+		62C1EB0317CC1216002910A3 /* Nerve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nerve.h; sourceTree = "<group>"; };
+		62C1EB0417CC1216002910A3 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObject.cpp; path = ../Classes/GameObject.cpp; sourceTree = "<group>"; };
+		62C1EB0517CC1216002910A3 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = ../Classes/GameObject.h; sourceTree = "<group>"; };
+		62C1EB0617CC1216002910A3 /* GamePlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GamePlay.cpp; path = ../Classes/GamePlay.cpp; sourceTree = "<group>"; };
+		62C1EB0717CC1216002910A3 /* GamePlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GamePlay.h; path = ../Classes/GamePlay.h; sourceTree = "<group>"; };
+		62C1EB0817CC1216002910A3 /* GameState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameState.cpp; path = ../Classes/GameState.cpp; sourceTree = "<group>"; };
+		62C1EB0917CC1216002910A3 /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameState.h; path = ../Classes/GameState.h; sourceTree = "<group>"; };
+		62C1EB0A17CC1216002910A3 /* HudApneaBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HudApneaBar.cpp; path = ../Classes/HudApneaBar.cpp; sourceTree = "<group>"; };
+		62C1EB0B17CC1216002910A3 /* HudApneaBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HudApneaBar.h; path = ../Classes/HudApneaBar.h; sourceTree = "<group>"; };
+		62C1EB0C17CC1216002910A3 /* HudPowerBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HudPowerBar.cpp; path = ../Classes/HudPowerBar.cpp; sourceTree = "<group>"; };
+		62C1EB0D17CC1216002910A3 /* HudPowerBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HudPowerBar.h; path = ../Classes/HudPowerBar.h; sourceTree = "<group>"; };
+		62C1EB0F17CC1216002910A3 /* GameoverScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameoverScene.cpp; sourceTree = "<group>"; };
+		62C1EB1017CC1216002910A3 /* GameoverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameoverScene.h; sourceTree = "<group>"; };
+		62C1EB1117CC1216002910A3 /* LevelTransition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelTransition.cpp; sourceTree = "<group>"; };
+		62C1EB1217CC1216002910A3 /* LevelTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTransition.h; sourceTree = "<group>"; };
+		62C1EB1317CC1216002910A3 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
+		62C1EB1417CC1216002910A3 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AF4C39717865FD400122817 /* libbox2d Mac.a in Frameworks */,
+				1AF4C39817865FD400122817 /* libchipmunk Mac.a in Frameworks */,
 				1AF4C39917865FD400122817 /* libcocos2dx Mac.a in Frameworks */,
 				1AF4C39A17865FD400122817 /* libcocos2dx-extensions Mac.a in Frameworks */,
 				1AF4C39B17865FD400122817 /* libCocosDenshion Mac.a in Frameworks */,
@@ -281,26 +283,26 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				62442A3117C86AE80038F7AB /* B2DebugDraw */,
-				62442A6F17C91FA10038F7AB /* Scenes */,
-				62442A4317C91F9E0038F7AB /* Entities */,
-				1AFAF8C616D3886000DB1158 /* AppDelegate.cpp */,
-				1AFAF8C716D3886000DB1158 /* AppDelegate.h */,
-				62442A3C17C91F9D0038F7AB /* BAContactListener.cpp */,
-				62442A3D17C91F9D0038F7AB /* BAContactListener.h */,
-				62442A3E17C91F9D0038F7AB /* BaseLayer.cpp */,
-				62442A3F17C91F9D0038F7AB /* BaseLayer.h */,
-				62442A4217C91F9E0038F7AB /* Common.h */,
-				62442A6917C91F9F0038F7AB /* GameObject.cpp */,
-				62442A6A17C91F9F0038F7AB /* GameObject.h */,
-				62442A6B17C91F9F0038F7AB /* GamePlay.cpp */,
-				62442A6C17C91FA00038F7AB /* GamePlay.h */,
-				62442A4017C91F9D0038F7AB /* HudPowerBar.cpp */,
-				62442A4117C91F9E0038F7AB /* HudPowerBar.h */,
-				62442A6D17C91FA10038F7AB /* HudApneaBar.cpp */,
-				62442A6E17C91FA10038F7AB /* HudApneaBar.h */,
-				62472F8717C9C320005BD0C4 /* GameState.cpp */,
-				62472F8817C9C320005BD0C4 /* GameState.h */,
+				62C1EAE317CC1216002910A3 /* AppDelegate.cpp */,
+				62C1EAE417CC1216002910A3 /* AppDelegate.h */,
+				62C1EAE517CC1216002910A3 /* B2DebugDraw */,
+				62C1EAEA17CC1216002910A3 /* BAContactListener.cpp */,
+				62C1EAEB17CC1216002910A3 /* BAContactListener.h */,
+				62C1EAEC17CC1216002910A3 /* BaseLayer.cpp */,
+				62C1EAED17CC1216002910A3 /* BaseLayer.h */,
+				62C1EAEE17CC1216002910A3 /* Common.h */,
+				62C1EAEF17CC1216002910A3 /* Entities */,
+				62C1EB0417CC1216002910A3 /* GameObject.cpp */,
+				62C1EB0517CC1216002910A3 /* GameObject.h */,
+				62C1EB0617CC1216002910A3 /* GamePlay.cpp */,
+				62C1EB0717CC1216002910A3 /* GamePlay.h */,
+				62C1EB0817CC1216002910A3 /* GameState.cpp */,
+				62C1EB0917CC1216002910A3 /* GameState.h */,
+				62C1EB0A17CC1216002910A3 /* HudApneaBar.cpp */,
+				62C1EB0B17CC1216002910A3 /* HudApneaBar.h */,
+				62C1EB0C17CC1216002910A3 /* HudPowerBar.cpp */,
+				62C1EB0D17CC1216002910A3 /* HudPowerBar.h */,
+				62C1EB0E17CC1216002910A3 /* Scenes */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -309,7 +311,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* LudumDare27.app */,
+				1D6058910D05DD3D006BFB54 /* SleepWell.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -389,90 +391,92 @@
 			path = en.lproj;
 			sourceTree = SOURCE_ROOT;
 		};
-		62442A3117C86AE80038F7AB /* B2DebugDraw */ = {
+		62C1EAE517CC1216002910A3 /* B2DebugDraw */ = {
 			isa = PBXGroup;
 			children = (
-				62442A3217C86AE80038F7AB /* B2DebugDrawLayer.cpp */,
-				62442A3317C86AE80038F7AB /* B2DebugDrawLayer.h */,
-				62442A3417C86AE80038F7AB /* GLES-Render.cpp */,
-				62442A3517C86AE80038F7AB /* GLES-Render.h */,
+				62C1EAE617CC1216002910A3 /* B2DebugDrawLayer.cpp */,
+				62C1EAE717CC1216002910A3 /* B2DebugDrawLayer.h */,
+				62C1EAE817CC1216002910A3 /* GLES-Render.cpp */,
+				62C1EAE917CC1216002910A3 /* GLES-Render.h */,
 			);
-			path = B2DebugDraw;
+			name = B2DebugDraw;
+			path = ../Classes/B2DebugDraw;
 			sourceTree = "<group>";
 		};
-		62442A4317C91F9E0038F7AB /* Entities */ = {
+		62C1EAEF17CC1216002910A3 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				62472F8017C9B058005BD0C4 /* Abstract */,
-				62442A4417C91F9F0038F7AB /* Collectables */,
-				62442A5117C91F9F0038F7AB /* Enemies */,
-				62442A6017C91F9F0038F7AB /* Static */,
-				62442A4F17C91F9F0038F7AB /* CollectableSpawnPoint.cpp */,
-				62442A5017C91F9F0038F7AB /* CollectableSpawnPoint.h */,
-				62442A5A17C91F9F0038F7AB /* EnemySpawnPoint.cpp */,
-				62442A5B17C91F9F0038F7AB /* EnemySpawnPoint.h */,
-				62442A5C17C91F9F0038F7AB /* Player.cpp */,
-				62442A5D17C91F9F0038F7AB /* Player.h */,
+				62C1EAF017CC1216002910A3 /* Abstract */,
+				62C1EAF317CC1216002910A3 /* Collectables */,
+				62C1EAF617CC1216002910A3 /* CollectableSpawnPoint.cpp */,
+				62C1EAF717CC1216002910A3 /* CollectableSpawnPoint.h */,
+				62C1EAF817CC1216002910A3 /* Enemies */,
+				62C1EAFD17CC1216002910A3 /* EnemySpawnPoint.cpp */,
+				62C1EAFE17CC1216002910A3 /* EnemySpawnPoint.h */,
+				62C1EAFF17CC1216002910A3 /* Player.cpp */,
+				62C1EB0017CC1216002910A3 /* Player.h */,
+				62C1EB0117CC1216002910A3 /* Static */,
 			);
-			path = Entities;
+			name = Entities;
+			path = ../Classes/Entities;
 			sourceTree = "<group>";
 		};
-		62442A4417C91F9F0038F7AB /* Collectables */ = {
+		62C1EAF017CC1216002910A3 /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
-				62442A4717C91F9F0038F7AB /* Collectable.cpp */,
-				62442A4817C91F9F0038F7AB /* Collectable.h */,
+				62C1EAF117CC1216002910A3 /* Pulse.cpp */,
+				62C1EAF217CC1216002910A3 /* Pulse.h */,
+			);
+			path = Abstract;
+			sourceTree = "<group>";
+		};
+		62C1EAF317CC1216002910A3 /* Collectables */ = {
+			isa = PBXGroup;
+			children = (
+				62C1EAF417CC1216002910A3 /* Collectable.cpp */,
+				62C1EAF517CC1216002910A3 /* Collectable.h */,
 			);
 			path = Collectables;
 			sourceTree = "<group>";
 		};
-		62442A5117C91F9F0038F7AB /* Enemies */ = {
+		62C1EAF817CC1216002910A3 /* Enemies */ = {
 			isa = PBXGroup;
 			children = (
-				62442A5217C91F9F0038F7AB /* Enemy.cpp */,
-				62442A5317C91F9F0038F7AB /* Enemy.h */,
-				62442A5417C91F9F0038F7AB /* BadNeuron.cpp */,
-				62442A5517C91F9F0038F7AB /* BadNeuron.h */,
+				62C1EAF917CC1216002910A3 /* BadNeuron.cpp */,
+				62C1EAFA17CC1216002910A3 /* BadNeuron.h */,
+				62C1EAFB17CC1216002910A3 /* Enemy.cpp */,
+				62C1EAFC17CC1216002910A3 /* Enemy.h */,
 			);
 			path = Enemies;
 			sourceTree = "<group>";
 		};
-		62442A6017C91F9F0038F7AB /* Static */ = {
+		62C1EB0117CC1216002910A3 /* Static */ = {
 			isa = PBXGroup;
 			children = (
-				62442A6117C91F9F0038F7AB /* Nerve.cpp */,
-				62442A6217C91F9F0038F7AB /* Nerve.h */,
+				62C1EB0217CC1216002910A3 /* Nerve.cpp */,
+				62C1EB0317CC1216002910A3 /* Nerve.h */,
 			);
 			path = Static;
 			sourceTree = "<group>";
 		};
-		62442A6F17C91FA10038F7AB /* Scenes */ = {
+		62C1EB0E17CC1216002910A3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				62442A7017C91FA20038F7AB /* GameoverScene.cpp */,
-				62442A7117C91FA20038F7AB /* GameoverScene.h */,
-				62442A7217C91FA20038F7AB /* TitleScene.cpp */,
-				62442A7317C91FA20038F7AB /* TitleScene.h */,
-				62472F7217C98582005BD0C4 /* LevelTransition.cpp */,
-				62472F7317C98582005BD0C4 /* LevelTransition.h */,
+				62C1EB0F17CC1216002910A3 /* GameoverScene.cpp */,
+				62C1EB1017CC1216002910A3 /* GameoverScene.h */,
+				62C1EB1117CC1216002910A3 /* LevelTransition.cpp */,
+				62C1EB1217CC1216002910A3 /* LevelTransition.h */,
+				62C1EB1317CC1216002910A3 /* TitleScene.cpp */,
+				62C1EB1417CC1216002910A3 /* TitleScene.h */,
 			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
-		62472F8017C9B058005BD0C4 /* Abstract */ = {
-			isa = PBXGroup;
-			children = (
-				62472F8117C9B058005BD0C4 /* Pulse.cpp */,
-				62472F8217C9B058005BD0C4 /* Pulse.h */,
-			);
-			name = Abstract;
-			path = ../../Classes/Entities/Abstract;
+			name = Scenes;
+			path = ../Classes/Scenes;
 			sourceTree = "<group>";
 		};
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				62442A9017C92DC70038F7AB /* main */,
+				62C1EAE117CC1207002910A3 /* main */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -481,9 +485,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* LudumDare27 */ = {
+		1D6058900D05DD3D006BFB54 /* SleepWell */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "LudumDare27" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SleepWell" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -498,9 +502,9 @@
 				1AF4C39417865FC700122817 /* PBXTargetDependency */,
 				1AF4C39617865FC700122817 /* PBXTargetDependency */,
 			);
-			name = LudumDare27;
+			name = SleepWell;
 			productName = iphone;
-			productReference = 1D6058910D05DD3D006BFB54 /* LudumDare27.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* SleepWell.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -511,7 +515,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "LudumDare27" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SleepWell" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -532,7 +536,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* LudumDare27 */,
+				1D6058900D05DD3D006BFB54 /* SleepWell */,
 			);
 		};
 /* End PBXProject section */
@@ -646,7 +650,7 @@
 				41BC70E515BF81A5006A0A6C /* InfoPlist.strings in Resources */,
 				41BC70E615BF81A5006A0A6C /* MainMenu.xib in Resources */,
 				41BC70E715BF81A5006A0A6C /* Icon.icns in Resources */,
-				62442A9117C92DC70038F7AB /* main in Resources */,
+				62C1EAE217CC1207002910A3 /* main in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,27 +663,27 @@
 			files = (
 				41BC70E415BF81A5006A0A6C /* AppController.mm in Sources */,
 				41BC70E815BF81A5006A0A6C /* main.m in Sources */,
-				1AFAF8CA16D3886000DB1158 /* AppDelegate.cpp in Sources */,
-				62442A3617C86AE80038F7AB /* B2DebugDrawLayer.cpp in Sources */,
-				62442A3717C86AE80038F7AB /* GLES-Render.cpp in Sources */,
-				62442A7417C91FA20038F7AB /* BAContactListener.cpp in Sources */,
-				62442A7517C91FA20038F7AB /* BaseLayer.cpp in Sources */,
-				62442A7617C91FA20038F7AB /* HudPowerBar.cpp in Sources */,
-				62442A7817C91FA20038F7AB /* Collectable.cpp in Sources */,
-				62442A7C17C91FA20038F7AB /* CollectableSpawnPoint.cpp in Sources */,
-				62442A7D17C91FA20038F7AB /* Enemy.cpp in Sources */,
-				62442A7E17C91FA20038F7AB /* BadNeuron.cpp in Sources */,
-				62442A8117C91FA20038F7AB /* EnemySpawnPoint.cpp in Sources */,
-				62442A8217C91FA20038F7AB /* Player.cpp in Sources */,
-				62442A8417C91FA20038F7AB /* Nerve.cpp in Sources */,
-				62442A8817C91FA20038F7AB /* GameObject.cpp in Sources */,
-				62442A8917C91FA20038F7AB /* GamePlay.cpp in Sources */,
-				62442A8A17C91FA20038F7AB /* HudApneaBar.cpp in Sources */,
-				62442A8B17C91FA20038F7AB /* GameoverScene.cpp in Sources */,
-				62442A8C17C91FA20038F7AB /* TitleScene.cpp in Sources */,
-				62472F7417C98582005BD0C4 /* LevelTransition.cpp in Sources */,
-				62472F8317C9B058005BD0C4 /* Pulse.cpp in Sources */,
-				62472F8917C9C320005BD0C4 /* GameState.cpp in Sources */,
+				62C1EB1517CC1216002910A3 /* AppDelegate.cpp in Sources */,
+				62C1EB1617CC1216002910A3 /* B2DebugDrawLayer.cpp in Sources */,
+				62C1EB1717CC1216002910A3 /* GLES-Render.cpp in Sources */,
+				62C1EB1817CC1216002910A3 /* BAContactListener.cpp in Sources */,
+				62C1EB1917CC1216002910A3 /* BaseLayer.cpp in Sources */,
+				62C1EB1A17CC1216002910A3 /* Pulse.cpp in Sources */,
+				62C1EB1B17CC1216002910A3 /* Collectable.cpp in Sources */,
+				62C1EB1C17CC1216002910A3 /* CollectableSpawnPoint.cpp in Sources */,
+				62C1EB1D17CC1216002910A3 /* BadNeuron.cpp in Sources */,
+				62C1EB1E17CC1216002910A3 /* Enemy.cpp in Sources */,
+				62C1EB1F17CC1216002910A3 /* EnemySpawnPoint.cpp in Sources */,
+				62C1EB2017CC1216002910A3 /* Player.cpp in Sources */,
+				62C1EB2117CC1216002910A3 /* Nerve.cpp in Sources */,
+				62C1EB2217CC1216002910A3 /* GameObject.cpp in Sources */,
+				62C1EB2317CC1216002910A3 /* GamePlay.cpp in Sources */,
+				62C1EB2417CC1216002910A3 /* GameState.cpp in Sources */,
+				62C1EB2517CC1216002910A3 /* HudApneaBar.cpp in Sources */,
+				62C1EB2617CC1216002910A3 /* HudPowerBar.cpp in Sources */,
+				62C1EB2717CC1216002910A3 /* GameoverScene.cpp in Sources */,
+				62C1EB2817CC1216002910A3 /* LevelTransition.cpp in Sources */,
+				62C1EB2917CC1216002910A3 /* TitleScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,6 +756,7 @@
 					USE_FILE32API,
 					CC_TARGET_OS_MAC,
 					"COCOS2D_DEBUG=1",
+					"CC_ENABLE_CHIPMUNK_INTEGRATION=1",
 					CC_KEYBOARD_SUPPORT,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -772,7 +777,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-O2";
-				PRODUCT_NAME = LudumDare27;
+				PRODUCT_NAME = SleepWell;
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "i386 x86_64";
@@ -796,6 +801,7 @@
 					NDEBUG,
 					CC_TARGET_OS_MAC,
 					USE_FILE32API,
+					"CC_ENABLE_CHIPMUNK_INTEGRATION=1",
 					CC_KEYBOARD_SUPPORT,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -814,7 +820,7 @@
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../../../cocos2dx/platform/third_party/mac/libraries\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				PRODUCT_NAME = LudumDare27;
+				PRODUCT_NAME = SleepWell;
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
@@ -852,7 +858,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "LudumDare27" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SleepWell" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
@@ -861,7 +867,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "LudumDare27" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SleepWell" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

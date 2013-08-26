@@ -1,4 +1,4 @@
-APPNAME="LudumDare27"
+APPNAME="SleepWell"
 
 # options
 

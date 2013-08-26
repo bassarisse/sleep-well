@@ -1,4 +1,4 @@
-EXECUTABLE = LudumDare27
+EXECUTABLE = SleepWell
 
 INCLUDES = -I.. -I../Classes
 
