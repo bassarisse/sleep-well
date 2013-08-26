@@ -132,13 +132,53 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\B2DebugDraw\B2DebugDrawLayer.cpp" />
+    <ClCompile Include="..\Classes\B2DebugDraw\GLES-Render.cpp" />
+    <ClCompile Include="..\Classes\BAContactListener.cpp" />
+    <ClCompile Include="..\Classes\BaseLayer.cpp" />
+    <ClCompile Include="..\Classes\Entities\Abstract\Pulse.cpp" />
+    <ClCompile Include="..\Classes\Entities\CollectableSpawnPoint.cpp" />
+    <ClCompile Include="..\Classes\Entities\Collectables\Collectable.cpp" />
+    <ClCompile Include="..\Classes\Entities\Enemies\BadNeuron.cpp" />
+    <ClCompile Include="..\Classes\Entities\Enemies\Enemy.cpp" />
+    <ClCompile Include="..\Classes\Entities\EnemySpawnPoint.cpp" />
+    <ClCompile Include="..\Classes\Entities\Player.cpp" />
+    <ClCompile Include="..\Classes\Entities\Static\Nerve.cpp" />
+    <ClCompile Include="..\Classes\GameObject.cpp" />
+    <ClCompile Include="..\Classes\GamePlay.cpp" />
+    <ClCompile Include="..\Classes\GameState.cpp" />
+    <ClCompile Include="..\Classes\HudApneaBar.cpp" />
+    <ClCompile Include="..\Classes\HudPowerBar.cpp" />
+    <ClCompile Include="..\Classes\Scenes\GameoverScene.cpp" />
+    <ClCompile Include="..\Classes\Scenes\LevelTransition.cpp" />
+    <ClCompile Include="..\Classes\Scenes\TitleScene.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
-    <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\B2DebugDraw\B2DebugDrawLayer.h" />
+    <ClInclude Include="..\Classes\B2DebugDraw\GLES-Render.h" />
+    <ClInclude Include="..\Classes\BAContactListener.h" />
+    <ClInclude Include="..\Classes\BaseLayer.h" />
+    <ClInclude Include="..\Classes\Common.h" />
+    <ClInclude Include="..\Classes\Entities\Abstract\Pulse.h" />
+    <ClInclude Include="..\Classes\Entities\CollectableSpawnPoint.h" />
+    <ClInclude Include="..\Classes\Entities\Collectables\Collectable.h" />
+    <ClInclude Include="..\Classes\Entities\Enemies\BadNeuron.h" />
+    <ClInclude Include="..\Classes\Entities\Enemies\Enemy.h" />
+    <ClInclude Include="..\Classes\Entities\EnemySpawnPoint.h" />
+    <ClInclude Include="..\Classes\Entities\Player.h" />
+    <ClInclude Include="..\Classes\Entities\Static\Nerve.h" />
+    <ClInclude Include="..\Classes\GameObject.h" />
+    <ClInclude Include="..\Classes\GamePlay.h" />
+    <ClInclude Include="..\Classes\GameState.h" />
+    <ClInclude Include="..\Classes\HudApneaBar.h" />
+    <ClInclude Include="..\Classes\HudPowerBar.h" />
+    <ClInclude Include="..\Classes\Scenes\GameoverScene.h" />
+    <ClInclude Include="..\Classes\Scenes\LevelTransition.h" />
+    <ClInclude Include="..\Classes\Scenes\TitleScene.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\cocos2dx\proj.win32\cocos2d.vcxproj">
@@ -161,6 +201,9 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
       <Project>{207bc7a9-ccf1-4f2f-a04d-45f72242ae25}</Project>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resources.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

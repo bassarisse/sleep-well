@@ -7,15 +7,93 @@
     <Filter Include="Classes">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\B2DebugDraw">
+      <UniqueIdentifier>{9baf111d-a8de-4af4-8907-36f36450afaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Entities">
+      <UniqueIdentifier>{dfdc9c5b-4f38-4427-b79a-6efb152ff66d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Scenes">
+      <UniqueIdentifier>{03844d1d-4501-4441-9f6b-54d8c3dcddca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Entities\Abstract">
+      <UniqueIdentifier>{53021924-73f7-4599-aff9-1d25e43437bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Entities\Collectables">
+      <UniqueIdentifier>{3045560e-878b-4cac-8a10-4c6a0293185a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Entities\Enemies">
+      <UniqueIdentifier>{209f7b3c-8343-4e60-a8c9-c127e6a44dae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Entities\Static">
+      <UniqueIdentifier>{6ae81e59-67c9-4da6-b357-b94beb9a4898}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AppDelegate.cpp">
+    <ClCompile Include="..\Classes\Entities\CollectableSpawnPoint.cpp">
+      <Filter>Classes\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Entities\EnemySpawnPoint.cpp">
+      <Filter>Classes\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Entities\Player.cpp">
+      <Filter>Classes\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Entities\Abstract\Pulse.cpp">
+      <Filter>Classes\Entities\Abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Entities\Collectables\Collectable.cpp">
+      <Filter>Classes\Entities\Collectables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Entities\Enemies\Enemy.cpp">
+      <Filter>Classes\Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Entities\Enemies\BadNeuron.cpp">
+      <Filter>Classes\Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Entities\Static\Nerve.cpp">
+      <Filter>Classes\Entities\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\B2DebugDraw\GLES-Render.cpp">
+      <Filter>Classes\B2DebugDraw</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\B2DebugDraw\B2DebugDrawLayer.cpp">
+      <Filter>Classes\B2DebugDraw</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scenes\LevelTransition.cpp">
+      <Filter>Classes\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scenes\TitleScene.cpp">
+      <Filter>Classes\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Scenes\GameoverScene.cpp">
+      <Filter>Classes\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BAContactListener.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+    <ClCompile Include="..\Classes\BaseLayer.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameObject.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GamePlay.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameState.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudApneaBar.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HudPowerBar.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -23,11 +101,79 @@
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Entities\CollectableSpawnPoint.h">
+      <Filter>Classes\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Entities\EnemySpawnPoint.h">
+      <Filter>Classes\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Entities\Player.h">
+      <Filter>Classes\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Entities\Abstract\Pulse.h">
+      <Filter>Classes\Entities\Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Entities\Collectables\Collectable.h">
+      <Filter>Classes\Entities\Collectables</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Entities\Enemies\Enemy.h">
+      <Filter>Classes\Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Entities\Enemies\BadNeuron.h">
+      <Filter>Classes\Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Entities\Static\Nerve.h">
+      <Filter>Classes\Entities\Static</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\B2DebugDraw\B2DebugDrawLayer.h">
+      <Filter>Classes\B2DebugDraw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\B2DebugDraw\GLES-Render.h">
+      <Filter>Classes\B2DebugDraw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scenes\LevelTransition.h">
+      <Filter>Classes\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scenes\TitleScene.h">
+      <Filter>Classes\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Scenes\GameoverScene.h">
+      <Filter>Classes\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BAContactListener.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BaseLayer.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameObject.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GamePlay.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameState.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudApneaBar.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HudPowerBar.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resources.rc">
+      <Filter>win32</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 #include "Nerve.h"
 
-#include "Player.h"
+#include "../Player.h"
 #include "../Abstract/Pulse.h"
 #include "../../GameState.h"
 #include "SimpleAudioEngine.h"
