@@ -19,8 +19,8 @@ AppDelegate::~AppDelegate()
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
-    SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0);
-    SimpleAudioEngine::getInstance()->setEffectsVolume(0);
+    //SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0);
+    //SimpleAudioEngine::getInstance()->setEffectsVolume(0);
     
     std::vector<std::string> searchPaths;
     searchPaths.push_back("main");

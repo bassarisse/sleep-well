@@ -72,6 +72,12 @@ bool GamePlay::init()
         return false;
     }
     
+    SimpleAudioEngine::getInstance()->preloadEffect("sfx_hit_brain.wav");
+    SimpleAudioEngine::getInstance()->preloadEffect("sfx_hit_enemy.wav");
+    SimpleAudioEngine::getInstance()->preloadEffect("sfx_hit_player.wav");
+    SimpleAudioEngine::getInstance()->preloadEffect("sfx_pulse.wav");
+	SimpleAudioEngine::getInstance()->preloadBackgroundMusic("bgm_game.wav");
+    
     this->setTouchEnabled(true);
     
     srand(time(NULL));
@@ -386,11 +392,6 @@ void GamePlay::update(float dt) {
 		if (gameObj->getState() == GameObjectStateDead) {
         /*
 			switch(gameObj->getType()) {
-                case GameObjectTypeCoffee:
-                    SimpleAudioEngine::getInstance()->playEffect("drinked_coffee.wav");
-					break;
-
-					break;
 				default:
                     break;
 			}
@@ -410,7 +411,7 @@ void GamePlay::update(float dt) {
         GameState::getInstance()->addActTime(_gameTime);
         
         if (GameState::getInstance()->getActLevel() > kMaxLevel) {
-            SimpleAudioEngine::getInstance()->playEffect("wilhem.wav");
+            SimpleAudioEngine::getInstance()->stopBackgroundMusic();
             Director::getInstance()->replaceScene(TransitionFade::create(1.0f, GameoverScene::scene()));
         } else {
             Director::getInstance()->replaceScene(TransitionFade::create(1.0f, LevelTransition::scene()));
@@ -648,9 +649,9 @@ void GamePlay::buttonB(bool pressed) {
 
 void GamePlay::onEnter() {
 	BaseLayer::onEnter();
-	SimpleAudioEngine::getInstance()->playBackgroundMusic("main_bgm.wav", true);
+    if (!SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
+        SimpleAudioEngine::getInstance()->playBackgroundMusic("bgm_game.wav", true);
 }
-
 
 void GamePlay::showScore(Point positionToShow, int scoreAmount) {
 	LabelBMFont *deathScore = LabelBMFont::create(
@@ -719,6 +720,8 @@ void GamePlay::flashScreen() {
 }
 
 void GamePlay::addPulse(float angle, float power) {
+    
+    SimpleAudioEngine::getInstance()->playEffect("sfx_pulse.wav");
     
     auto pulse = new Pulse();
     pulse->init(_world, NULL, _player, angle, power);

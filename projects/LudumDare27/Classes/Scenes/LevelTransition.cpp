@@ -29,6 +29,8 @@ bool LevelTransition::init()  {
         return false;
     }
     
+    SimpleAudioEngine::getInstance()->preloadEffect("sfx_breathing.wav");
+    
     auto winSize = Director::getInstance()->getWinSize();
     int level = GameState::getInstance()->getActLevel();
     
@@ -41,6 +43,8 @@ bool LevelTransition::init()  {
     
 	this->addChild(scoreLabel);
     
+    SimpleAudioEngine::getInstance()->playEffect("sfx_breathing.wav");
+    
 	return true;
 }
 
@@ -48,7 +52,7 @@ void LevelTransition::onEnterTransitionDidFinish() {
     BaseLayer::onEnterTransitionDidFinish();
     
     this->runAction(Sequence::create(
-                                     DelayTime::create(2.0f),
+                                     DelayTime::create(1.5f),
                                      CallFunc::create([]() {
         Director::getInstance()->replaceScene(TransitionFade::create(1.0f, GamePlay::scene()));
     }),

@@ -29,7 +29,7 @@ using namespace cocos2d;
 
 #define kPowerChargeFactor 55.0f
 #define kPowerDamage 0.0f
-#define kPowerFinalDifference 0.2f
+#define kPowerFinalDifference 0.25f
 #define kPowerLevelDifference 0.0125f
 
 #define kApneaFactor 5.0f

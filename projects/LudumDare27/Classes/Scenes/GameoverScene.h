@@ -18,7 +18,7 @@ public:
 
 	virtual bool init();
 	static Scene* scene();
-
+    virtual void onEnterTransitionDidFinish();
     void enableMenus(bool enabled);
 
 };

@@ -2,8 +2,10 @@
 #include "Enemy.h"
 
 #include "Box2D/Box2D.h"
-
 #include "../Abstract/Pulse.h"
+#include "SimpleAudioEngine.h"
+
+using namespace CocosDenshion;
 
 bool Enemy::init(b2World *world, Dictionary *properties, Player *ref) {
     
@@ -78,6 +80,7 @@ void Enemy::handleCollision(GameObject *gameObject) {
         _damageTime = _currentMaxDamageTime;
         
         _body->SetLinearVelocity(b2Vec2(0, 0));
+        SimpleAudioEngine::getInstance()->playEffect("sfx_hit_enemy.wav");
         
     }
     

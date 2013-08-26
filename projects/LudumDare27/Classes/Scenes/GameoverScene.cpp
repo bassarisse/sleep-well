@@ -30,7 +30,10 @@ bool GameoverScene::init()  {
         return false;
     }
     
-	SimpleAudioEngine::getInstance()->stopBackgroundMusic(false);
+    SimpleAudioEngine::getInstance()->preloadEffect("sfx_select.wav");
+    SimpleAudioEngine::getInstance()->preloadEffect("sfx_breathing.wav");
+    SimpleAudioEngine::getInstance()->preloadBackgroundMusic("bgm_gameover.wav");
+	SimpleAudioEngine::getInstance()->stopBackgroundMusic();
     
 	auto bgSprite = Sprite::create("gameover.png");
     bgSprite->getTexture()->setAliasTexParameters();
@@ -233,16 +236,17 @@ bool GameoverScene::init()  {
     returnLabel->setColor(problemColor);
  
 	auto restartOpt = MenuItemLabel::create(restartLabel, [](Object* obj) {
-		SimpleAudioEngine::getInstance()->stopBackgroundMusic(false);
-		Scene *pScene = LevelTransition::scene();
+        SimpleAudioEngine::getInstance()->playEffect("sfx_select.wav");
+        SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 	
-		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, pScene));
+		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, LevelTransition::scene()));
 	});
 
 	auto returnOpt = MenuItemLabel::create(returnLabel, [](Object* obj) {
-		Scene *pScene = TitleScene::scene();
+        SimpleAudioEngine::getInstance()->playEffect("sfx_select.wav");
+        SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 	
-		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, pScene));
+		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, TitleScene::scene()));
 	});
 
 	_menu = Menu::create(restartOpt, returnOpt, NULL);
@@ -251,7 +255,16 @@ bool GameoverScene::init()  {
     
 	this->addChild(_menu);
     
+    SimpleAudioEngine::getInstance()->playEffect("sfx_breathing.wav");
+    
 	return true;
+}
+
+void GameoverScene::onEnterTransitionDidFinish() {
+    BaseLayer::onEnterTransitionDidFinish();
+    
+    SimpleAudioEngine::getInstance()->playBackgroundMusic("bgm_gameover.wav", false);
+    
 }
 
 void GameoverScene::enableMenus(bool enabled) {

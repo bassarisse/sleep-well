@@ -29,8 +29,3 @@ bool BadNeuron::init(b2World *world, Dictionary *properties, Player *ref) {
     
     return true;
 }
-
-void BadNeuron::die() {
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("death_man.wav");
-    Enemy::die();
-}

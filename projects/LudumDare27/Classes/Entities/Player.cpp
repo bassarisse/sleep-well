@@ -85,7 +85,7 @@ void Player::handleCollision(GameObject *gameObject) {
                 return;
             _damageTime = kDamageTime;
             
-			SimpleAudioEngine::getInstance()->playEffect("player_hit.wav");
+            SimpleAudioEngine::getInstance()->playEffect("sfx_hit_player.wav");
             
             _power *= kPowerDamage;
             

@@ -36,6 +36,9 @@ bool TitleScene::init()  {
         return false;
     }
     
+    SimpleAudioEngine::getInstance()->preloadEffect("sfx_select.wav");
+    SimpleAudioEngine::getInstance()->preloadEffect("sfx_back.wav");
+    
     GameState::getInstance()->clearActTimes();
     
     auto winSize = Director::getInstance()->getWinSize();
@@ -76,19 +79,20 @@ bool TitleScene::init()  {
     aboutLabel->setColor(menuColor);
 
 	auto startOpt = MenuItemLabel::create(startLabel, [](Object* obj) {
-		SimpleAudioEngine::getInstance()->stopBackgroundMusic(false);
-		Scene *pScene = LevelTransition::scene();
+        SimpleAudioEngine::getInstance()->playEffect("sfx_select.wav");
 	
-		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, pScene));
+		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, LevelTransition::scene()));
 	});
     
 	auto helpOpt = MenuItemLabel::create(helpLabel, [this](Object* obj) {
+        SimpleAudioEngine::getInstance()->playEffect("sfx_select.wav");
 		_helpShown = true;
 		this->addChild(_help);
         this->enableMenus(false);
 	});
     
 	auto aboutOpt = MenuItemLabel::create(aboutLabel, [this](Object* obj) {
+        SimpleAudioEngine::getInstance()->playEffect("sfx_select.wav");
 		_creditsShown = true;
 		this->addChild(_credits);
         this->enableMenus(false);
@@ -104,8 +108,6 @@ bool TitleScene::init()  {
 	this->addChild(_menu);
     
     this->setTouchEnabled(true);
-	
-    SimpleAudioEngine::getInstance()->playBackgroundMusic("title_bgm.mp3", true);
     
     _helpShown = false;
 	_creditsShown = false;
@@ -182,12 +184,14 @@ void TitleScene::buttonAny(bool pressed) {
 		return;
     
 	if (_creditsShown) {
+        SimpleAudioEngine::getInstance()->playEffect("sfx_back.wav");
 		_creditsShown = false;
 		this->removeChild(_credits);
         this->enableMenus(true);
 	}
     
 	if (_helpShown) {
+        SimpleAudioEngine::getInstance()->playEffect("sfx_back.wav");
 		_helpShown = false;
 		this->removeChild(_help);
         this->enableMenus(true);
