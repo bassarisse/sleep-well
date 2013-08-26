@@ -33,7 +33,7 @@ using namespace cocos2d;
 #define kPowerLevelDifference 0.0125f
 
 #define kApneaFactor 5.0f
-#define kApneaLevelDifference 0.2f
+#define kApneaLevelDifference 0.12f
 
 #define kWalkActionTag 500
 #define kOverlayOpacity 220
