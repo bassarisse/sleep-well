@@ -13,7 +13,7 @@ GameObject::~GameObject() {
 
 void GameObject::setProperties(Dictionary* properties)
 {
-    if (properties && _hasNode) {
+    if (properties && _hasNode && properties->objectForKey("x")) {
         float x = floatValue(properties->objectForKey("x"));
         float y = floatValue(properties->objectForKey("y"));
         float halfwidth = floatValue(properties->objectForKey("width")) / 2.0f;
@@ -179,7 +179,8 @@ bool GameObject::init(b2World *world, Dictionary *properties, bool isSensor, boo
     _lastDirection = kDirectionDown;
     _lastVerticalDirection = kDirectionDown;
     _lastHorizontalDirection = kDirectionRight;
-	_IsDestroyed = false;
+	_isDestroyed = false;
+	_state = GameObjectStateStanding;
     
     this->setMovingVerticalState(MovingStateVerticalStopped);
     this->setMovingHorizontalState(MovingStateHorizontalStopped);
@@ -438,5 +439,5 @@ void GameObject::setIdleFrame () {
 
 void GameObject::destroyBody(b2World* world) {
 	world->DestroyBody(this->getBody());
-	this->_IsDestroyed = true;
+	this->_isDestroyed = true;
 }

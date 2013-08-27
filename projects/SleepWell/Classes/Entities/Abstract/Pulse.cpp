@@ -35,15 +35,6 @@ bool Pulse::init(b2World *world, Dictionary *properties, Player *player, float a
     _node->setRotation(nodeAngle);
     _node->setScale(0.5f + power / 200.0f);
     
-    auto completionAction = CallFunc::create([this]() {
-        this->setState(GameObjectStateDead);
-    });
-    
-    auto action = Sequence::create(
-                                   FadeOut::create(kPulseWaveTime),
-                                   completionAction,
-                                   NULL);
-    
     float force = (kPulseForce + _power * kPulseForcePowerFactor);
     
     float aImpulseX = force * cos(angle * M_PI / 180.0f);
@@ -52,6 +43,15 @@ bool Pulse::init(b2World *world, Dictionary *properties, Player *player, float a
     b2Vec2 aImpulse = b2Vec2(aImpulseX, aImpulseY);
     
     _body->ApplyLinearImpulse(aImpulse, _body->GetWorldCenter());
+    
+    auto completionAction = CallFunc::create([this]() {
+        this->setState(GameObjectStateDead);
+    });
+    
+    auto action = Sequence::create(
+                                   FadeOut::create(kPulseWaveTime),
+                                   completionAction,
+                                   NULL);
     
     this->getNode()->runAction(action);
     

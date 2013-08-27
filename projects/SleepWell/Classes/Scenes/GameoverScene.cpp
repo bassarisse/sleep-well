@@ -129,6 +129,8 @@ bool GameoverScene::init()  {
     int scoreMultiplier = 4 - apneaLevel;
     int finalScore = score * scoreMultiplier;
     
+    if (score < 0)
+        score = 0;
     if (finalScore < 0)
         finalScore = 0;
     

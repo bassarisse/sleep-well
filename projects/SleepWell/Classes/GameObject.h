@@ -75,7 +75,7 @@ public:
     CC_SYNTHESIZE(MovingVerticalState, _movingVerticalState, MovingVerticalState);
     CC_SYNTHESIZE(GameObjectState, _state, State);
     CC_SYNTHESIZE(GameObjectType, _type, Type);
-	CC_SYNTHESIZE(bool, _IsDestroyed, IsDestroyed);
+	CC_SYNTHESIZE(bool, _isDestroyed, IsDestroyed);
 };
 
 #endif /* defined(__SleepWell__GameObject__) */

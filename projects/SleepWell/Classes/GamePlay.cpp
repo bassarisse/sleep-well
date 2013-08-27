@@ -724,7 +724,7 @@ void GamePlay::addPulse(float angle, float power) {
     SimpleAudioEngine::getInstance()->playEffect("sfx_pulse.wav");
     
     auto pulse = new Pulse();
-    pulse->init(_world, NULL, _player, angle, power);
+	pulse->init(_world, Dictionary::create(), _player, angle, power);
     
     _mainBatchNode->addChild(pulse->getNode());
     _gameObjects.push_back(pulse);
