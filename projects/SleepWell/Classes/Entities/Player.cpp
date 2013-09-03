@@ -26,8 +26,8 @@ bool Player::init(b2World *world, Dictionary *properties, GamePlay* gameScreen) 
     _actionCooldownTime = 0.0f;
     _lastMovementAngle = 270;
     _node = Sprite::createWithSpriteFrameName("neuron_1.png");
-    _power = 0.0f;
-    _apneaLevel = 100.0f;
+    _power = kStartingPower;
+    _apneaLevel = kStartingApneaLevel;
     
     _spriteFrameName = "neuron";
     

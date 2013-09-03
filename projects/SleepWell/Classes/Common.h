@@ -12,6 +12,8 @@ using namespace cocos2d;
 #define kImpulseYCutLevelDifference 0.02f
 #define kWalkForce 6.0f
 
+#define kStartingPower 0.0f
+#define kStartingApneaLevel 100.0f
 #define kMaxLevel 10
 
 #define kEnemyRandomRange 600

@@ -88,6 +88,7 @@ public:
 	virtual void buttonB(bool pressed);
 
 	virtual void onEnter();
+    virtual void onEnterTransitionDidFinish();
     
 	virtual void showScore(Point positionToShow, int scoreAmount);
 	virtual void shakeScreen();

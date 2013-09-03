@@ -285,15 +285,20 @@ bool GamePlay::init()
 	_hudPowerBar = new HudPowerBar();
 	_hudPowerBar->init();
 	_hudPowerBar->autorelease();
+    _hudPowerBar->setVisible(false);
+    _hudPowerBar->setLevel(_player->getPower());
     
 	_hudApneaBar = new HudApneaBar();
 	_hudApneaBar->init();
 	_hudApneaBar->autorelease();
+    _hudApneaBar->setVisible(false);
+    _hudApneaBar->setLevel(_player->getApneaLevel());
 
-    _timeLabel = LabelBMFont::create("0", "MiniFont.fnt", _winSize.width / 5, Label::HAlignment::RIGHT);
+    _timeLabel = LabelBMFont::create("0.0", "MiniFont.fnt", _winSize.width / 5, Label::HAlignment::RIGHT);
     _timeLabel->getTexture()->setAliasTexParameters();
 	_timeLabel->setAnchorPoint(Point(1, 1));
 	_timeLabel->setPosition(Point(_winSize.width - 10, _winSize.height - 10));
+    _timeLabel->setVisible(false);
     
 	this->addChild(_hudPowerBar);
 	this->addChild(_hudApneaBar);
@@ -314,8 +319,9 @@ bool GamePlay::init()
 
 	_isPaused = false;
 
-    this->scheduleUpdate();
 	SimpleAudioEngine::getInstance()->preloadBackgroundMusic("main_bgm.wav");
+    
+    this->scheduleUpdate();
     
     // DEBUG ----------
     
@@ -324,7 +330,6 @@ bool GamePlay::init()
     
     if (_debugLayer)
         this->addChild(_debugLayer, 9999);
-    
 
     return true;
 }
@@ -653,6 +658,23 @@ void GamePlay::onEnter() {
         SimpleAudioEngine::getInstance()->playBackgroundMusic("bgm_game.wav", true);
 }
 
+void GamePlay::onEnterTransitionDidFinish() {
+	BaseLayer::onEnterTransitionDidFinish();
+    
+    _gameTime = 0;
+    
+    _player->setPower(kStartingPower);
+    _player->setApneaLevel(kStartingApneaLevel);
+    
+	_hudPowerBar->setLevel(_player->getPower());
+	_hudApneaBar->setLevel(_player->getApneaLevel());
+    
+    _hudPowerBar->setVisible(true);
+    _hudApneaBar->setVisible(true);
+    _timeLabel->setVisible(true);
+    
+}
+
 void GamePlay::showScore(Point positionToShow, int scoreAmount) {
 	LabelBMFont *deathScore = LabelBMFont::create(
 					String::createWithFormat("%d", scoreAmount)->getCString(), 
@@ -666,10 +688,10 @@ void GamePlay::showScore(Point positionToShow, int scoreAmount) {
 	_mainLayer->addChild(deathScore);
 
 	int randomNumber = (15 + (rand() % 31)) * (rand() % 2 == 0 ? 1 : -1);
-	int randomHeig = (15 + (rand() % 16));
+	int randomHeight = (15 + (rand() % 16));
 
 	JumpTo* scoreJump = JumpTo::create(1.0f, Point(deathScore->getPosition().x + randomNumber,
-		deathScore->getPosition().y), randomHeig, 1);
+		deathScore->getPosition().y), randomHeight, 1);
     
 	FadeOut* fadingOut = FadeOut::create(0.7f);
 	Sequence* timerFade = Sequence::create(DelayTime::create(0.4f),
