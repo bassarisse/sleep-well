@@ -90,6 +90,12 @@ bool GamePlay::init()
     
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("general.plist");
     
+	_buttonLeftPressed = false;
+    _buttonRightPressed = false;
+    _buttonUpPressed = false;
+    _buttonDownPressed = false;
+    _buttonAPressed = false;
+
     _contactListener = new BAContactListener();
     _mainLayer = Layer::create();
     _mainBatchNode = SpriteBatchNode::create("general.png");
@@ -98,6 +104,7 @@ bool GamePlay::init()
     _touchLocation = Point(0, 0);
     _gameTime = 0;
     _didFinish = false;
+	_isPaused = false;
     
 	_tiledMap->getLayer("main")->getTexture()->setAliasTexParameters();
     _mainBatchNode->getTexture()->setAliasTexParameters();
@@ -316,8 +323,6 @@ bool GamePlay::init()
 	pauseLabel->setPosition(Point(this->getContentSize().width / 2, this->getContentSize().height / 2));
     
 	_pauseLayer->addChild(pauseLabel);
-
-	_isPaused = false;
 
 	SimpleAudioEngine::getInstance()->preloadBackgroundMusic("main_bgm.wav");
     

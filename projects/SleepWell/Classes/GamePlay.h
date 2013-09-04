@@ -27,6 +27,7 @@ private:
     
     float _gameTime;
     bool _didFinish;
+	bool _isPaused;
     
 public:
     virtual ~GamePlay();
@@ -45,6 +46,7 @@ public:
     SpriteBatchNode *_mainBatchNode;
     TMXTiledMap *_tiledMap;
     LabelBMFont *_timeLabel;
+	LayerColor* _pauseLayer;
     bool _isTouching;
     Point _touchLocation;
     
@@ -59,9 +61,6 @@ public:
 	CC_SYNTHESIZE(HudPowerBar*, _hudPowerBar, HudPowerBar);
 	CC_SYNTHESIZE(HudApneaBar*, _hudApneaBar, HudApneaBar);
     
-	LayerColor* _pauseLayer;
-	bool _isPaused;
-
     // Box2D
     
     b2World *_world;

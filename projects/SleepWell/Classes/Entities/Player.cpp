@@ -55,9 +55,9 @@ void Player::update(float dt) {
     if (_actionCooldownTime < 0)
         _actionCooldownTime = 0;
     
-    int colorAdd = 100 + 155 * ((kDamageTime - _damageTime) / kDamageTime);
+    auto colorAdd = 55 + 200 * ((kDamageTime - _damageTime) / kDamageTime);
     Sprite *thisSprite = (Sprite *)this->getNode();
-    thisSprite->setColor(Color3B(255, colorAdd, colorAdd));
+    thisSprite->setColor(Color3B(colorAdd, colorAdd, 255));
     
     _power += dt * kPowerChargeFactor;
     if (_power > 100) _power = 100;
@@ -166,7 +166,7 @@ void Player::handleMovement(float angle) {
 
 void Player::action() {
     
-    if (_actionCooldownTime > 0 || _lastMovementAngle == -1)
+    if (_damageTime > 0 || _actionCooldownTime > 0 || _lastMovementAngle == -1)
         return;
     _actionCooldownTime = kPulseCooldownTime;
     
