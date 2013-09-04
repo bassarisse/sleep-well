@@ -155,11 +155,11 @@ void Player::handleMovement() {
 
 void Player::handleMovement(float angle) {
     
-    if (_damageTime > 0 || _actionCooldownTime > 0)
-        return;
-    
     if (angle >= 0)
         _lastMovementAngle = angle;
+    
+    if (_damageTime > 0 || _actionCooldownTime > 0)
+        return;
     
     GameObject::handleMovement(angle);
 }
@@ -180,6 +180,7 @@ void Player::action() {
     
     b2Vec2 playerImpulse = b2Vec2(playerImpulseX, playerImpulseY);
     
+    _body->SetLinearVelocity(b2Vec2(0, 0));
     _body->ApplyLinearImpulse(playerImpulse, _body->GetWorldCenter());
     
 }
