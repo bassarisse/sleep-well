@@ -13,7 +13,11 @@ void Pulse::addFixtures() {
 bool Pulse::init(b2World *world, Dictionary *properties, Player *player, float angle, float power) {
     
     auto playerNode = player->getNode();
-    auto position = Point(playerNode->getPosition().x, playerNode->getPosition().y);
+    auto nodeAngle = 360 - angle;
+
+    auto distance = playerNode->getContentSize().width / 4.0f;
+	auto pivotPoint = Point(playerNode->getPosition().x, playerNode->getPosition().y);
+	auto position = Point(pivotPoint.x + distance, pivotPoint.y).rotateByAngle(pivotPoint, CC_DEGREES_TO_RADIANS(angle));
     
     _node = Sprite::createWithSpriteFrameName("pulse.png");
     _node->setPosition(position);
@@ -28,8 +32,6 @@ bool Pulse::init(b2World *world, Dictionary *properties, Player *player, float a
         return false;
     
     _shouldFlipSprite = false;
-    
-    float nodeAngle = 360 - angle;
     
     _body->SetGravityScale(0);
     _node->setRotation(nodeAngle);
