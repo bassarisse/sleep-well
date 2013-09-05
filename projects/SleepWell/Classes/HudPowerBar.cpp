@@ -1,7 +1,7 @@
 #include "HudPowerBar.h"
 
 bool HudPowerBar::init() {
-	if ( !LayerColor::initWithColor(Color4B(0, 0, 0, 255)) )
+	if ( !LayerColor::initWithColor(Color4B(180, 180, 180, 255)) )
     {
         return false;
     }
@@ -11,7 +11,14 @@ bool HudPowerBar::init() {
 	this->setContentSize(Size((int)(winSize.width * 0.25f), 20));
 	this->setAnchorPoint(Point(0, 0));
 	this->setPosition(8, winSize.height - 56);
-
+    
+    auto thisSize = this->getContentSize();
+    
+	auto bg = LayerColor::create(Color4B(0, 0, 0, 255));
+	bg->setAnchorPoint(Point(0, 0));
+	bg->setPosition(1, 1);
+	bg->setContentSize(Size((thisSize.width - 2), thisSize.height - 2));
+    
 	_bar = LayerColor::create(Color4B(180, 30, 30, 255));
 	_bar->setAnchorPoint(Point(0, 0));
 	_bar->setPosition(1, 1);
@@ -20,7 +27,8 @@ bool HudPowerBar::init() {
     label->getTexture()->setAliasTexParameters();
 	label->setAnchorPoint(Point(0, 0));
     label->setPosition(2, -3);
-
+    
+	this->addChild(bg);
 	this->addChild(_bar);
     this->addChild(label);
     
