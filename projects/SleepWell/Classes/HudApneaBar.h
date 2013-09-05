@@ -8,13 +8,17 @@ using namespace cocos2d;
 
 class HudApneaBar : public LayerColor
 {
+    
+private:
+    
+	LayerGradient* _bar;
+    
+    
 public:
     
     virtual bool init();
-            
+    
 	void setLevel(float level);
-
-	LayerColor* _bar;
     
 	void blinkBar();
 

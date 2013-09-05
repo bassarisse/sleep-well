@@ -11,7 +11,7 @@ class HudPowerBar : public LayerColor
     
 private:
     
-	LayerColor* _bar;
+	LayerGradient* _bar;
     
     
 public:

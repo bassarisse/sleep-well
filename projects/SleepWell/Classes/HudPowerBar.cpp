@@ -1,7 +1,7 @@
 #include "HudPowerBar.h"
 
 bool HudPowerBar::init() {
-	if ( !LayerColor::initWithColor(Color4B(180, 180, 180, 255)) )
+	if ( !LayerColor::initWithColor(Color4B(180, 90, 90, 255)) )
     {
         return false;
     }
@@ -19,7 +19,7 @@ bool HudPowerBar::init() {
 	bg->setPosition(1, 1);
 	bg->setContentSize(Size((thisSize.width - 2), thisSize.height - 2));
     
-	_bar = LayerColor::create(Color4B(180, 30, 30, 255));
+	_bar = LayerGradient::create(Color4B(180, 30, 30, 255), Color4B(90, 15, 15, 255));
 	_bar->setAnchorPoint(Point(0, 0));
 	_bar->setPosition(1, 1);
     
