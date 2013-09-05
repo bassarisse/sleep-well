@@ -187,16 +187,16 @@ bool TitleScene::init()  {
     helpNeuronImage->setFlipX(true);
     
     auto helpBadNeuronImage = Sprite::createWithSpriteFrameName("badneuron_1.png");
-	helpBadNeuronImage->setPosition(Point(winSize.width * 0.94f, winSize.height * 0.37f));
+	helpBadNeuronImage->setPosition(Point(winSize.width * 0.94f, winSize.height * 0.47f));
     helpBadNeuronImage->setFlipY(true);
     
     auto helpApneaBar = new HudApneaBar();
     helpApneaBar->autorelease();
     helpApneaBar->init();
     helpApneaBar->setLevel(75);
-    helpApneaBar->setPosition(Point(winSize.width * 0.07f, winSize.height * 0.25f));
+    helpApneaBar->setPosition(Point(winSize.width * 0.07f, winSize.height * 0.22f));
     
-	auto helpInstruction = LabelBMFont::create("Shoot energy pulses on this brain connection to reduce the apnea level and make the body breathe again.", "MicroFont.fnt", winSize.width * 0.5f, Label::HAlignment::CENTER);
+	auto helpInstruction = LabelBMFont::create("Shoot energy pulses on this brain connection to reduce the apnea level.", "MicroFont.fnt", winSize.width * 0.5f, Label::HAlignment::CENTER);
 	helpInstruction->setPosition(Point(winSize.width * 0.72f, winSize.height * 0.76f));
     helpInstruction->getTexture()->setAliasTexParameters();
     
@@ -204,17 +204,17 @@ bool TitleScene::init()  {
     helpInstruction2->setAnchorPoint(Point(0, 0.5f));
 	helpInstruction2->setPosition(Point(winSize.width * 0.13f, winSize.height * 0.57f));
     
-	auto helpInstruction3 = LabelBMFont::create("These guys aren't bad, they're just... doing the wrong thing! Avoid them and you'll be fine.", "MicroFont.fnt", winSize.width * 0.3f, Label::HAlignment::RIGHT);
+	auto helpInstruction3 = LabelBMFont::create("These guys aren't bad, they're just... doing the wrong thing! Avoid them and you'll be fine.", "MicroFont.fnt", winSize.width * 0.27f, Label::HAlignment::RIGHT);
     helpInstruction3->setAnchorPoint(Point(1, 0.5f));
-	helpInstruction3->setPosition(Point(winSize.width * 0.89f, winSize.height * 0.37f));
+	helpInstruction3->setPosition(Point(winSize.width * 0.89f, winSize.height * 0.47f));
     
 	auto helpInstruction4 = LabelBMFont::create("You don't want apnea, you want a good night of sleep, right? So, to achieve that, finish all the 10 suspensions of breathing as fast as you can. You'll receive the result of your exam after that.", "MicroFont.fnt", winSize.width * 0.75f, Label::HAlignment::CENTER);
     helpInstruction4->setAnchorPoint(Point(0.5f, 0.5f));
 	helpInstruction4->setPosition(Point(winSize.width * 0.5f, winSize.height * 0.09f));
     
-	auto helpInstruction5 = LabelBMFont::create("Oh, the apnea level?\nIt's the blue bar at the top of the screen.\nIt decreases automatically, but really slowly!", "MicroFont.fnt", winSize.width * 0.55f, Label::HAlignment::LEFT);
+	auto helpInstruction5 = LabelBMFont::create("Oh, the apnea level?\nThe body will only breathe again when it runs out.\nIt decreases automatically, but really slowly!", "MicroFont.fnt", winSize.width * 0.6f, Label::HAlignment::LEFT);
     helpInstruction5->setAnchorPoint(Point(0, 0.5f));
-	helpInstruction5->setPosition(Point(winSize.width * 0.02f, winSize.height * 0.35f));
+	helpInstruction5->setPosition(Point(winSize.width * 0.015f, winSize.height * 0.32f));
 	
 	_help = LayerColor::create(Color4B(0, 0, 0, kOverlayOpacity));
 	_help->retain();
