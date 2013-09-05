@@ -18,7 +18,7 @@ using namespace cocos2d;
 
 #define kEnemyRandomRange 600
 #define kEnemyRandomTime 5.0f
-#define kEnemyDamageTime 0.5f
+#define kEnemyDamageTime 0.6f
 
 #define kDamageTime 0.3f
 #define kDamageImpulse 20.0f
