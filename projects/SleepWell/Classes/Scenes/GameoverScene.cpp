@@ -240,10 +240,10 @@ bool GameoverScene::init()  {
     tipLabel->setAnchorPoint(Point(0.5f, 0.5f));
     tipLabel->setPosition((int)(winSize.width * 0.78f), (int)(winSize.height * 0.75f));
     
-    int maxTip = 6;
+    int maxTip = 8;
     
-    if (scoreMultiplier == 1)
-        maxTip--;
+    if (scoreMultiplier > 1)
+        maxTip -= 3;
     
     int randomTip = rand() % maxTip;
     
@@ -265,7 +265,13 @@ bool GameoverScene::init()  {
             break;
             
         case 5:
+            tipLabel->setString("TIP:\nShoot your energy at the other neurons to stop them for some time");
+            break;
+        case 6:
             tipLabel->setString("TIP:\nUse 'Space' to shoot energy pulses and hit the brain connection at top of the screen");
+            break;
+        case 7:
+            tipLabel->setString("TIP:\nCheck the 'Help' screen if you're having too much trouble");
             break;
             
         default:
