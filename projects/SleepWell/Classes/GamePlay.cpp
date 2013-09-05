@@ -176,7 +176,7 @@ bool GamePlay::init()
             
             GameObjectType gameObjectType = GameObjectTypeUnknown;
             
-            if(type->compare("BadNeuron") == 0 && rand() % 2 == 0 && enemyCount < level * 0.75f) {
+            if(type->compare("BadNeuron") == 0 && rand() % 3 == 1 && enemyCount < level * 0.75f) {
                 gameObjectType = GameObjectTypeBadNeuron;
                 enemyCount++;
             }
@@ -354,7 +354,7 @@ void GamePlay::update(float dt) {
         _gameTime += dt;
     
     _timeLabel->setString(String::createWithFormat("%.1f", _gameTime)->getCString());
-    if (_gameTime > 10)
+    if (_gameTime > 10.0f)
         _timeLabel->setColor(Color3B(255, 80, 80));
     
     _player->setMovingHorizontalState(_movingHorizontalStates[_movingHorizontalStates.size() - 1]);

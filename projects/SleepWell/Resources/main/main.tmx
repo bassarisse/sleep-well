@@ -10,15 +10,20 @@
  </layer>
  <objectgroup name="collision" width="10" height="10">
   <object x="646" y="23">
-   <polyline points="0,0 221,12 320,113 315,751 224,884 41,960 -533,925 -576,801 -584,675 -617,616 -625,300 -605,105 -511,54 -365,15 -337,11"/>
+   <polyline points="0,0 221,19 296,53 320,113 330,429 315,751 229,859 190,922 41,960 -533,925 -576,801 -584,675 -617,616 -602,351 -611,128 -511,54 -434,43 -325,23"/>
   </object>
   <object type="Nerve" x="269" y="10">
    <polyline points="-22,-9 53,30 54,68 182,103 332,61 375,13 445,-11"/>
   </object>
+  <object type="BadNeuron" x="238" y="684" width="37" height="45">
+   <properties>
+    <property name="MaxObjects" value="3"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="objects" width="10" height="10">
-  <object type="Player" x="473" y="627" width="48" height="48"/>
-  <object type="BadNeuron" x="478" y="215" width="37" height="45">
+  <object type="Player" x="480" y="628" width="48" height="48"/>
+  <object type="BadNeuron" x="122" y="403" width="37" height="45">
    <properties>
     <property name="MaxObjects" value="3"/>
    </properties>
@@ -38,7 +43,7 @@
     <property name="MaxObjects" value="3"/>
    </properties>
   </object>
-  <object type="BadNeuron" x="342" y="816" width="37" height="45">
+  <object type="BadNeuron" x="323" y="836" width="37" height="45">
    <properties>
     <property name="MaxObjects" value="3"/>
    </properties>
@@ -68,12 +73,12 @@
     <property name="MaxObjects" value="3"/>
    </properties>
   </object>
-  <object type="BadNeuron" x="619" y="777" width="37" height="45">
+  <object type="BadNeuron" x="656" y="840" width="37" height="45">
    <properties>
     <property name="MaxObjects" value="3"/>
    </properties>
   </object>
-  <object type="BadNeuron" x="206" y="782" width="37" height="45">
+  <object type="BadNeuron" x="182" y="750" width="37" height="45">
    <properties>
     <property name="MaxObjects" value="3"/>
    </properties>
@@ -88,12 +93,12 @@
     <property name="MaxObjects" value="3"/>
    </properties>
   </object>
-  <object type="BadNeuron" x="202" y="575" width="37" height="45">
+  <object type="BadNeuron" x="165" y="584" width="37" height="45">
    <properties>
     <property name="MaxObjects" value="3"/>
    </properties>
   </object>
-  <object type="BadNeuron" x="651" y="428" width="37" height="45">
+  <object type="BadNeuron" x="715" y="186" width="37" height="45">
    <properties>
     <property name="MaxObjects" value="3"/>
    </properties>
@@ -118,17 +123,17 @@
     <property name="MaxObjects" value="3"/>
    </properties>
   </object>
-  <object type="BadNeuron" x="317" y="415" width="37" height="45">
+  <object type="BadNeuron" x="878" y="468" width="37" height="45">
    <properties>
     <property name="MaxObjects" value="3"/>
    </properties>
   </object>
-  <object type="BadNeuron" x="481" y="434" width="37" height="45">
+  <object type="BadNeuron" x="331" y="377" width="37" height="45">
    <properties>
     <property name="MaxObjects" value="3"/>
    </properties>
   </object>
-  <object type="BadNeuron" x="652" y="618" width="37" height="45">
+  <object type="BadNeuron" x="773" y="658" width="37" height="45">
    <properties>
     <property name="MaxObjects" value="3"/>
    </properties>
@@ -138,7 +143,7 @@
     <property name="MaxObjects" value="3"/>
    </properties>
   </object>
-  <object type="BadNeuron" x="273" y="718" width="37" height="45">
+  <object type="BadNeuron" x="220" y="858" width="37" height="45">
    <properties>
     <property name="MaxObjects" value="3"/>
    </properties>
@@ -168,17 +173,17 @@
     <property name="MaxObjects" value="3"/>
    </properties>
   </object>
-  <object type="BadNeuron" x="510" y="809" width="37" height="45">
+  <object type="BadNeuron" x="546" y="864" width="37" height="45">
    <properties>
     <property name="MaxObjects" value="3"/>
    </properties>
   </object>
-  <object type="BadNeuron" x="745" y="701" width="37" height="45">
+  <object type="BadNeuron" x="729" y="757" width="37" height="45">
    <properties>
     <property name="MaxObjects" value="3"/>
    </properties>
   </object>
-  <object type="BadNeuron" x="674" y="844" width="37" height="45">
+  <object type="BadNeuron" x="731" y="853" width="37" height="45">
    <properties>
     <property name="MaxObjects" value="3"/>
    </properties>
