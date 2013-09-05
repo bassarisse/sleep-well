@@ -15,6 +15,9 @@ private:
 	LayerColor *_help;
 	bool _helpShown;
     
+	LayerColor *_apneaExplanation;
+    bool _apneaExplanationShown;
+    
 	LayerColor *_credits;
 	bool _creditsShown;
 
