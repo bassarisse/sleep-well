@@ -35,6 +35,8 @@ bool GameoverScene::init()  {
     SimpleAudioEngine::getInstance()->preloadBackgroundMusic("bgm_gameover.wav");
 	SimpleAudioEngine::getInstance()->stopBackgroundMusic();
     
+    auto winSize = Director::getInstance()->getWinSize();
+    
 	auto bgSprite = Sprite::create("gameover.png");
     bgSprite->getTexture()->setAliasTexParameters();
 	bgSprite->setPosition(Point(this->getContentSize().width / 2, this->getContentSize().height / 2));
@@ -76,7 +78,7 @@ bool GameoverScene::init()  {
         
         float scoreBase = 100.0f;
         float difference = 15.0f;
-        bool isApnea = actTime > 10;
+        bool isApnea = actTime > 10.0f;
         
         if (isApnea) {
             
@@ -234,6 +236,44 @@ bool GameoverScene::init()  {
     this->addChild(conclusionLabel);
     this->addChild(conclusionTextLabel);
     
+    auto tipLabel = LabelBMFont::create("", "MicroFont.fnt", (int)(winSize.width * 0.3f), Label::HAlignment::CENTER);
+    tipLabel->setAnchorPoint(Point(0.5f, 0.5f));
+    tipLabel->setPosition((int)(winSize.width * 0.78f), (int)(winSize.height * 0.75f));
+    
+    int maxTip = 6;
+    
+    if (scoreMultiplier == 1)
+        maxTip--;
+    
+    int randomTip = rand() % maxTip;
+    
+    switch (randomTip) {
+        case 0:
+            tipLabel->setString("TIP:\nUse your energy pulse to move faster");
+            break;
+        case 1:
+            tipLabel->setString("TIP:\nFinish before 10 seconds to get a higher score multiplier");
+            break;
+        case 2:
+            tipLabel->setString("TIP:\nThe more energy you have when hitting the brain connection, the more your apnea will decrease");
+            break;
+        case 3:
+            tipLabel->setString("TIP:\nPosition yourself accordingly to make the enemies push you the direction you want");
+            break;
+        case 4:
+            tipLabel->setString("TIP:\nFor each suspension of breathing that you pass, it will be harder to go up");
+            break;
+            
+        case 5:
+            tipLabel->setString("TIP:\nUse 'Space' to shoot energy pulses and hit the brain connection at top of the screen");
+            break;
+            
+        default:
+            break;
+    }
+    
+    this->addChild(tipLabel);
+    
     GameState::getInstance()->clearActTimes();
     
     auto restartLabel = LabelBMFont::create("Restart", "MiniFont.fnt", 200, Label::HAlignment::CENTER);
@@ -257,7 +297,7 @@ bool GameoverScene::init()  {
 	});
 
 	_menu = Menu::create(restartOpt, returnOpt, NULL);
-	_menu->setPosition(Point(this->getContentSize().width - 170, this->getContentSize().height * 0.22f));
+	_menu->setPosition(Point((int)(winSize.width * 0.78f), (int)(winSize.height * 0.22f)));
 	_menu->alignItemsVerticallyWithPadding(10);
     
 	this->addChild(_menu);
