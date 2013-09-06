@@ -49,7 +49,7 @@ bool LevelTransition::init()  {
         hours += 1;
     }
     
-    auto timeText = String::createWithFormat("%i:%02i:%02i AM", hours, minutes, remainingSeconds)->getCString();
+    auto timeText = String::createWithFormat("%i : %02i : %02i  AM", hours, minutes, remainingSeconds)->getCString();
     
     auto levelText = String::createWithFormat("Suspension of breathing\n%d / %i", level, kMaxLevel)->getCString();
     
@@ -60,12 +60,29 @@ bool LevelTransition::init()  {
     timeLabel->setColor(Color3B(40, 80, 160));
     
 	auto levelLabel = LabelBMFont::create(levelText, "MiniFont.fnt", winSize.width, Label::HAlignment::CENTER);
-    levelLabel->getTexture()->setAliasTexParameters();
 	levelLabel->setAnchorPoint(Point(0.5f, 0.5f));
 	levelLabel->setPosition(Point(winSize.width / 2, winSize.height / 2));
     
 	this->addChild(timeLabel);
 	this->addChild(levelLabel);
+    
+    if (level > 1  && level < 4) {
+        
+        auto actTimes = GameState::getInstance()->getActTimes();
+        
+        float lastTime = actTimes[level - 2];
+        
+        if (lastTime > 10.0f) {
+            
+            auto hintLabel = LabelBMFont::create("Shoot the brain connection at the top!", "MiniFont.fnt", winSize.width, Label::HAlignment::CENTER);
+            hintLabel->setAnchorPoint(Point(0.5f, 0.5f));
+            hintLabel->setPosition(Point(winSize.width / 2, winSize.height * 0.2f));
+            hintLabel->setColor(Color3B(150, 30, 30));
+            
+            this->addChild(hintLabel);
+        }
+        
+    }
     
     SimpleAudioEngine::getInstance()->playEffect("sfx_breathing.wav");
     
