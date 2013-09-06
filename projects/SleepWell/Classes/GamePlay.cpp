@@ -128,7 +128,7 @@ bool GamePlay::init()
     TMXObjectGroup *collisionGroup = _tiledMap->getObjectGroup("collision");
     TMXObjectGroup *gameObjectsGroup = _tiledMap->getObjectGroup("objects");
     
-    b2Vec2 gravity = b2Vec2(0.0f, kGravity - level / 2.0f);
+    b2Vec2 gravity = b2Vec2(0.0f, kGravity + level * kGravityDifferencePerLevel);
     
     _world = new b2World(gravity);
     _world->SetAllowSleeping(true);
@@ -174,7 +174,7 @@ bool GamePlay::init()
             
             GameObjectType gameObjectType = GameObjectTypeUnknown;
             
-            if(type->compare("BadNeuron") == 0 && rand() % 3 == 1 && enemyCount < level * 0.75f) {
+            if(type->compare("BadNeuron") == 0 && rand() % 3 == 1 && enemyCount < level * 0.65f) {
                 gameObjectType = GameObjectTypeBadNeuron;
                 enemyCount++;
             }

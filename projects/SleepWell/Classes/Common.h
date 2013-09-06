@@ -8,6 +8,7 @@ using namespace cocos2d;
 
 #define PTM_RATIO 32.0f
 #define kGravity -12
+#define kGravityDifferencePerLevel -0.4f
 #define kImpulseYCut 0.72f
 #define kImpulseYCutLevelDifference 0.02f
 #define kWalkForce 6.0f
@@ -27,13 +28,13 @@ using namespace cocos2d;
 #define kPulseCooldownTime 0.4f
 #define kPulseFactor 15.0f
 #define kPulseForce 50.0f
-#define kPulseForcePowerFactor 0.5f
+#define kPulseForcePowerFactor 0.6f
 #define kPulseWaveTime 0.85f
 
-#define kPowerChargeFactor 55.0f
+#define kPowerChargeFactor 60.0f
 #define kPowerDamage 0.0f
 #define kPowerFinalDifference 0.25f
-#define kPowerLevelDifference 0.0125f
+#define kPowerLevelDifference 0.011f
 
 #define kApneaFactor 5.0f
 #define kApneaLevelDifference 0.12f
