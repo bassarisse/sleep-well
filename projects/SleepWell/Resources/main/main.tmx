@@ -15,11 +15,6 @@
   <object type="Nerve" x="269" y="10">
    <polyline points="-22,-9 53,30 54,68 182,103 332,61 375,13 445,-11"/>
   </object>
-  <object type="BadNeuron" x="238" y="684" width="37" height="45">
-   <properties>
-    <property name="MaxObjects" value="3"/>
-   </properties>
-  </object>
  </objectgroup>
  <objectgroup name="objects" width="10" height="10">
   <object type="Player" x="480" y="628" width="48" height="48"/>
@@ -189,6 +184,11 @@
    </properties>
   </object>
   <object type="BadNeuron" x="830" y="126" width="37" height="45">
+   <properties>
+    <property name="MaxObjects" value="3"/>
+   </properties>
+  </object>
+  <object type="BadNeuron" x="253" y="717" width="37" height="45">
    <properties>
     <property name="MaxObjects" value="3"/>
    </properties>
