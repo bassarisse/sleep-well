@@ -21,10 +21,14 @@ public:
     static GameState* getInstance();
     
 	CC_SYNTHESIZE(int, _actlevel, ActLevel);
+	CC_SYNTHESIZE(int, _hours, Hours);
+	CC_SYNTHESIZE(int, _minutes, Minutes);
+	CC_SYNTHESIZE(int, _seconds, Seconds);
     
     void clearActTimes();
     void addActTime(float time);
     std::vector<float> getActTimes();
+    float getTotalTime();
     
 };
 

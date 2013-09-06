@@ -22,6 +22,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     //SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0);
     //SimpleAudioEngine::getInstance()->setEffectsVolume(0);
     
+    srand(time(NULL));
+    
     std::vector<std::string> searchPaths;
     searchPaths.push_back("main");
     FileUtils::getInstance()->setSearchPaths(searchPaths);

@@ -6,6 +6,11 @@ GameState* GameState::m_theInstance = nullptr;
 GameState::GameState(): _actTimes()
 {
     _actlevel = 1;
+    
+    _hours = 1 + rand() % 7;
+    _minutes = rand() % 60;
+    _seconds = rand() % 60;
+    
 }
 
 GameState* GameState::getInstance()
@@ -23,6 +28,11 @@ GameState* GameState::getInstance()
 
 void GameState::clearActTimes() {
     _actlevel = 1;
+    
+    _hours = 1 + rand() % 7;
+    _minutes = rand() % 60;
+    _seconds = rand() % 60;
+    
     _actTimes.clear();
 }
 
@@ -33,4 +43,16 @@ void GameState::addActTime(float time) {
 
 std::vector<float> GameState::getActTimes() {
     return _actTimes;
+}
+
+float GameState::getTotalTime() {
+    
+    float totalTime = 0.0f;
+    auto maxSize = _actTimes.size();
+    
+    for (auto i = maxSize - maxSize; i < maxSize; i++) {
+        totalTime += _actTimes[i];
+    }
+    
+    return totalTime;
 }

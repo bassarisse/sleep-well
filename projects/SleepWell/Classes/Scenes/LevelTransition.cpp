@@ -33,15 +33,39 @@ bool LevelTransition::init()  {
     
     auto winSize = Director::getInstance()->getWinSize();
     int level = GameState::getInstance()->getActLevel();
+    int totalTime = GameState::getInstance()->getTotalTime();
+    int hours = GameState::getInstance()->getHours();
+    int minutes = GameState::getInstance()->getMinutes();
+    int seconds = GameState::getInstance()->getSeconds();
     
-    auto text = String::createWithFormat("Suspension of breathing\n%d / %i", level, kMaxLevel)->getCString();
-
-	auto scoreLabel = LabelBMFont::create(text, "MiniFont.fnt", winSize.width, Label::HAlignment::CENTER);
-    scoreLabel->getTexture()->setAliasTexParameters();
-	scoreLabel->setAnchorPoint(Point(0.5f, 0.5f));
-	scoreLabel->setPosition(Point(this->getContentSize().width / 2, this->getContentSize().height / 2));
+    seconds += totalTime + (level - 1) * kSecondsPerLevel;
     
-	this->addChild(scoreLabel);
+    int remainingSeconds = seconds % 60;
+    
+    minutes += (seconds - remainingSeconds) / 60.0f;
+    
+    if (minutes >= 60) {
+        minutes -= 60;
+        hours += 1;
+    }
+    
+    auto timeText = String::createWithFormat("%i:%02i:%02i AM", hours, minutes, remainingSeconds)->getCString();
+    
+    auto levelText = String::createWithFormat("Suspension of breathing\n%d / %i", level, kMaxLevel)->getCString();
+    
+	auto timeLabel = LabelBMFont::create(timeText, "MiniFont.fnt", winSize.width, Label::HAlignment::CENTER);
+    timeLabel->getTexture()->setAliasTexParameters();
+	timeLabel->setAnchorPoint(Point(0.5f, 0.5f));
+	timeLabel->setPosition(Point(winSize.width / 2, winSize.height * 0.8f));
+    timeLabel->setColor(Color3B(40, 80, 160));
+    
+	auto levelLabel = LabelBMFont::create(levelText, "MiniFont.fnt", winSize.width, Label::HAlignment::CENTER);
+    levelLabel->getTexture()->setAliasTexParameters();
+	levelLabel->setAnchorPoint(Point(0.5f, 0.5f));
+	levelLabel->setPosition(Point(winSize.width / 2, winSize.height / 2));
+    
+	this->addChild(timeLabel);
+	this->addChild(levelLabel);
     
     SimpleAudioEngine::getInstance()->playEffect("sfx_breathing.wav");
     

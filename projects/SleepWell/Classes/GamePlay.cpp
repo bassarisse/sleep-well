@@ -80,8 +80,6 @@ bool GamePlay::init()
     
     this->setTouchEnabled(true);
     
-    srand(time(NULL));
-    
     int level = GameState::getInstance()->getActLevel();
     
     _winSize = Director::getInstance()->getWinSize();

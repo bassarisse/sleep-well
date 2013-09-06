@@ -15,6 +15,7 @@ using namespace cocos2d;
 #define kStartingPower 0.0f
 #define kStartingApneaLevel 100.0f
 #define kMaxLevel 10
+#define kSecondsPerLevel 75
 
 #define kEnemyRandomRange 600
 #define kEnemyRandomTime 5.0f
