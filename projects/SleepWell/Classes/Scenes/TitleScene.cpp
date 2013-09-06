@@ -155,20 +155,30 @@ bool TitleScene::init()  {
     
     // CREDITS ----------
     
-	auto creditsText = LabelBMFont::create("ABOUT\n \nGame by:\nBruno Assarisse\n \nSpecial Thanks:\nCaroline Rodolfo <3\n \nMade for Ludum Dare 27\nwithin 72 hours :D", "MiniFont.fnt", winSize.width, Label::HAlignment::CENTER);
-	creditsText->setPosition(Point(winSize.width / 2, winSize.height / 2));
+	auto creditsTitle = LabelBMFont::create("ABOUT", "MiniFont.fnt", winSize.width, Label::HAlignment::CENTER);
+	creditsTitle->setPosition(Point(winSize.width * 0.5f, winSize.height * 0.88f));
+	creditsTitle->setAnchorPoint(Point(0.5f, 0.5f));
+    
+	auto creditsText = LabelBMFont::create("Game by:\nBruno Assarisse\n \nSpecial thanks:\nCaroline Rodolfo <3\n \nMade for Ludum Dare 27\nwithin 72 hours :D", "MiniFont.fnt", winSize.width, Label::HAlignment::CENTER);
+	creditsText->setPosition(Point(winSize.width * 0.5f, winSize.height * 0.45f));
 	
 	_credits = LayerColor::create(Color4B(0, 0, 0, kOverlayOpacity));
 	_credits->retain();
+	_credits->addChild(creditsTitle);
 	_credits->addChild(creditsText);
     
     // APNEA EXPLANATION ----------
     
-	auto apneaExplanationText = LabelBMFont::create("WHAT IS APNEA?\n \nApnea is a desease.", "MiniFont.fnt", winSize.width, Label::HAlignment::CENTER);
-	apneaExplanationText->setPosition(Point(winSize.width / 2, winSize.height / 2));
+	auto apneaExplanationTitle = LabelBMFont::create("WHAT IS APNEA?", "MiniFont.fnt", winSize.width, Label::HAlignment::CENTER);
+	apneaExplanationTitle->setPosition(Point(winSize.width * 0.5f, winSize.height * 0.88f));
+	apneaExplanationTitle->setAnchorPoint(Point(0.5f, 0.5f));
+    
+	auto apneaExplanationText = LabelBMFont::create("Generally speaking, apnea is the state when a person, while sleeping, stops breathing for a certain ammount of time. The more it happens, and more time the person takes to breathe again, greater is the harm that can be made to the brain.\n \nWhile asleep, all muscles of the body are relaxed, but, in some cases, the brain \"forgets\" to control the muscles necessary for breathing. That's one of the reasons why apnea occurs, and you're fighting against it in this game.\n \nThe level of an apnea case is measured by how many times a person stops breathing for more than 10 seconds in a hour, during a sleep cicle. Here, you control the neuron for about 15 minutes of sleep.\n \nHaving a good night of sleep is as important as eating and exercising, so take care!", "MicroFont.fnt", winSize.width * 0.7f, Label::HAlignment::CENTER);
+	apneaExplanationText->setPosition(Point(winSize.width * 0.5f, winSize.height * 0.45f));
 	
 	_apneaExplanation = LayerColor::create(Color4B(0, 0, 0, kOverlayOpacity));
 	_apneaExplanation->retain();
+	_apneaExplanation->addChild(apneaExplanationTitle);
 	_apneaExplanation->addChild(apneaExplanationText);
     
     // HELP ----------
@@ -176,45 +186,51 @@ bool TitleScene::init()  {
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("general.plist");
     
 	auto helpTitle = LabelBMFont::create("HELP", "MiniFont.fnt", winSize.width, Label::HAlignment::CENTER);
-	helpTitle->setPosition(Point(winSize.width * 0.1f, winSize.height * 0.92f));
+	helpTitle->setPosition(Point(winSize.width * 0.1f, winSize.height * 0.88f));
+	helpTitle->setAnchorPoint(Point(0, 0.5f));
     
 	auto helpNerveImage = Sprite::create("nerve.png");
     helpNerveImage->setAnchorPoint(Point(0.5f, 1));
 	helpNerveImage->setPosition(Point(winSize.width * 0.72f, winSize.height));
     
-    auto helpNeuronImage = Sprite::createWithSpriteFrameName("neuron_1.png");
-	helpNeuronImage->setPosition(Point(winSize.width * 0.08f, winSize.height * 0.57f));
-    helpNeuronImage->setFlipX(true);
-    
-    auto helpBadNeuronImage = Sprite::createWithSpriteFrameName("badneuron_1.png");
-	helpBadNeuronImage->setPosition(Point(winSize.width * 0.94f, winSize.height * 0.47f));
-    helpBadNeuronImage->setFlipY(true);
+	auto helpInstruction = LabelBMFont::create("Shoot energy pulses on this brain connection to reduce the apnea level.", "MicroFont.fnt", winSize.width * 0.3f, Label::HAlignment::CENTER);
+    helpInstruction->setAnchorPoint(Point(0, 0.5f));
+	helpInstruction->setPosition(Point(winSize.width * 0.7f, winSize.height * 0.75f));
+    helpInstruction->getTexture()->setAliasTexParameters();
     
     auto helpApneaBar = new HudApneaBar();
     helpApneaBar->autorelease();
     helpApneaBar->init();
     helpApneaBar->setLevel(75);
-    helpApneaBar->setPosition(Point(winSize.width * 0.07f, winSize.height * 0.22f));
+    helpApneaBar->setPosition(Point(winSize.width * 0.07f, winSize.height * 0.58f));
     
-	auto helpInstruction = LabelBMFont::create("Shoot energy pulses on this brain connection to reduce the apnea level.", "MicroFont.fnt", winSize.width * 0.5f, Label::HAlignment::CENTER);
-	helpInstruction->setPosition(Point(winSize.width * 0.72f, winSize.height * 0.76f));
-    helpInstruction->getTexture()->setAliasTexParameters();
-    
-	auto helpInstruction2 = LabelBMFont::create("This is your hero neuron!\nHelp him get your apnea level to 0 before 10 seconds!", "MicroFont.fnt", winSize.width * 0.39f, Label::HAlignment::LEFT);
-    helpInstruction2->setAnchorPoint(Point(0, 0.5f));
-	helpInstruction2->setPosition(Point(winSize.width * 0.13f, winSize.height * 0.57f));
-    
-	auto helpInstruction3 = LabelBMFont::create("These guys aren't bad, they're just... doing the wrong thing! Avoid them and you'll be fine.", "MicroFont.fnt", winSize.width * 0.27f, Label::HAlignment::RIGHT);
-    helpInstruction3->setAnchorPoint(Point(1, 0.5f));
-	helpInstruction3->setPosition(Point(winSize.width * 0.89f, winSize.height * 0.47f));
-    
-	auto helpInstruction4 = LabelBMFont::create("You don't want apnea, you want a good night of sleep, right? So, to achieve that, finish all the 10 suspensions of breathing as fast as you can. You'll receive the result of your exam after that.", "MicroFont.fnt", winSize.width * 0.75f, Label::HAlignment::CENTER);
-    helpInstruction4->setAnchorPoint(Point(0.5f, 0.5f));
-	helpInstruction4->setPosition(Point(winSize.width * 0.5f, winSize.height * 0.09f));
-    
-	auto helpInstruction5 = LabelBMFont::create("Oh, the apnea level?\nThe body will only breathe again when it runs out.\nIt decreases automatically, but really slowly!", "MicroFont.fnt", winSize.width * 0.6f, Label::HAlignment::LEFT);
+	auto helpInstruction5 = LabelBMFont::create("The body will breathe again when your apnea level runs out. It decreases automatically but slowly!", "MicroFont.fnt", winSize.width * 0.45f, Label::HAlignment::LEFT);
     helpInstruction5->setAnchorPoint(Point(0, 0.5f));
-	helpInstruction5->setPosition(Point(winSize.width * 0.015f, winSize.height * 0.32f));
+	helpInstruction5->setPosition(Point(winSize.width * 0.02f, winSize.height * 0.68f));
+    
+    auto helpNeuronImage = Sprite::createWithSpriteFrameName("neuron_1.png");
+	helpNeuronImage->setPosition(Point(winSize.width * 0.50f, winSize.height * 0.4f));
+    helpNeuronImage->setFlipX(true);
+    helpNeuronImage->setFlipY(true);
+    
+    auto helpPulseImage = Sprite::createWithSpriteFrameName("pulse.png");
+	helpPulseImage->setPosition(Point(winSize.width * 0.58f, winSize.height * 0.62f));
+    helpPulseImage->setRotation(300);
+    
+	auto helpInstruction2 = LabelBMFont::create("This is your hero neuron!\nHelp him deplete the apnea level before 10 seconds!", "MicroFont.fnt", winSize.width * 0.39f, Label::HAlignment::RIGHT);
+    helpInstruction2->setAnchorPoint(Point(1, 0.5f));
+	helpInstruction2->setPosition(Point(winSize.width * 0.43f, winSize.height * 0.36f));
+    
+    auto helpBadNeuronImage = Sprite::createWithSpriteFrameName("badneuron_1.png");
+	helpBadNeuronImage->setPosition(Point(winSize.width * 0.88f, winSize.height * 0.42f));
+    
+	auto helpInstruction3 = LabelBMFont::create("These guys aren't bad, they're just... doing the wrong thing! Avoid them and you'll be fine.", "MicroFont.fnt", winSize.width * 0.38f, Label::HAlignment::RIGHT);
+    helpInstruction3->setAnchorPoint(Point(1, 0.5f));
+	helpInstruction3->setPosition(Point(winSize.width * 0.98f, winSize.height * 0.3f));
+    
+	auto helpInstruction4 = LabelBMFont::create("Finish all the 10 suspensions of breathing as fast as you can.\nYou'll receive the result of your exam after that.", "MicroFont.fnt", winSize.width * 0.75f, Label::HAlignment::CENTER);
+    helpInstruction4->setAnchorPoint(Point(0.5f, 0.5f));
+	helpInstruction4->setPosition(Point(winSize.width * 0.5f, winSize.height * 0.1f));
 	
 	_help = LayerColor::create(Color4B(0, 0, 0, kOverlayOpacity));
 	_help->retain();
@@ -223,6 +239,7 @@ bool TitleScene::init()  {
 	_help->addChild(helpNeuronImage);
 	_help->addChild(helpBadNeuronImage);
 	_help->addChild(helpApneaBar);
+	_help->addChild(helpPulseImage);
 	_help->addChild(helpInstruction);
 	_help->addChild(helpInstruction2);
 	_help->addChild(helpInstruction3);
